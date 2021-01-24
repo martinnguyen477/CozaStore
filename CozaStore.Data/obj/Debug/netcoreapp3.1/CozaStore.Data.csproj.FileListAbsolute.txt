@@ -1,0 +1,4 @@
+F:\Project\CozaStore\CozaStore.Data\bin\Debug\netcoreapp3.1\CozaStore.Model.dll
+F:\Project\CozaStore\CozaStore.Data\obj\Debug\netcoreapp3.1\CozaStore.Data.csprojAssemblyReference.cache
+F:\Project\CozaStore\CozaStore.Data\obj\Debug\netcoreapp3.1\CozaStore.Data.AssemblyInfoInputs.cache
+F:\Project\CozaStore\CozaStore.Data\obj\Debug\netcoreapp3.1\CozaStore.Data.AssemblyInfo.cs
