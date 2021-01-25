@@ -4,11 +4,39 @@
 
 namespace CozaStore.Model.EntitiesModel
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using CozaStore.Model.BaseModel;
 
-    class Post
+    /// <summary>
+    /// Post.
+    /// </summary>
+    [Table("Post")]
+    public class PostEntities : BaseTableWithId
     {
+        /// <summary>
+        /// Gets or sets post Title.
+        /// </summary>
+        [Required]
+        [Column("PostTitle")]
+        public string PostTitle { get; set; }
+
+        /// <summary>
+        /// Gets or sets topicId .
+        /// </summary>
+        [Column("Topic")]
+        public int TopicId { get; set; }
+
+        /// <summary>
+        /// Gets or sets image.
+        /// </summary>
+        [Column("Image")]
+        public string Image { get; set; }
+
+        /// <summary>
+        /// Gets or sets descriptiop.
+        /// </summary>
+        [Column("Description")]
+        public string Description { get; set; }
     }
 }

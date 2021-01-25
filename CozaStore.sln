@@ -3,13 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CozaStore.Application", "CozaStore\CozaStore.Application.csproj", "{63791B10-EA9C-4CA9-AEAA-3819E01C6E9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CozaStore.Application", "CozaStore\CozaStore.Application.csproj", "{63791B10-EA9C-4CA9-AEAA-3819E01C6E9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CozaStore.Model", "CozaStore.Model\CozaStore.Model.csproj", "{C67D9470-A9AD-4F16-87E1-FF00216B9472}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CozaStore.Model", "CozaStore.Model\CozaStore.Model.csproj", "{C67D9470-A9AD-4F16-87E1-FF00216B9472}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CozaStore.Services", "CozaStore.Services\CozaStore.Services.csproj", "{996771D6-D68E-4AEF-A531-E8186610A02B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CozaStore.Services", "CozaStore.Services\CozaStore.Services.csproj", "{996771D6-D68E-4AEF-A531-E8186610A02B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CozaStore.Data", "CozaStore.Data\CozaStore.Data.csproj", "{9E16E60E-1EDC-4D20-8EE8-6CC0D731AE71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CozaStore.Data", "CozaStore.Data\CozaStore.Data.csproj", "{9E16E60E-1EDC-4D20-8EE8-6CC0D731AE71}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BD445CC3-33D4-4CB8-A600-53CF082CBD50}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

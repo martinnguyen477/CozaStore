@@ -1,4 +1,4 @@
-﻿// <copyright file="BaseTableWithID.cs" company="PlaceholderCompany">
+﻿// <copyright file="BaseTableWithId.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 

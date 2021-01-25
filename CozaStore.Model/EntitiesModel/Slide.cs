@@ -4,11 +4,21 @@
 
 namespace CozaStore.Model.EntitiesModel
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using CozaStore.Model.BaseModel;
 
-    class Slide
+    /// <summary>
+    /// Slide.
+    /// </summary>
+    [Table("Slide")]
+    public class SlideEntities : BaseTableWithId
     {
+        /// <summary>
+        /// Gets or sets slideName.
+        /// </summary>
+        [Required]
+        [Column("SlideName")]
+        public string SlideName { get; set; }
     }
 }

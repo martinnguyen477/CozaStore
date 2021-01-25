@@ -4,16 +4,21 @@
 
 namespace CozaStore.Model.EntitiesModel
 {
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     using CozaStore.Model.BaseModel;
 
     /// <summary>
     /// Category.
     /// </summary>
-    public class Category : BaseTableWithId
+    [Table("Category")]
+    public class CategoryEntities : BaseTableWithId
     {
         /// <summary>
         /// Gets or sets categoryName.
         /// </summary>
+        [Required]
+        [Column("CategoryName")]
         public string CategoryName { get; set; }
     }
 }

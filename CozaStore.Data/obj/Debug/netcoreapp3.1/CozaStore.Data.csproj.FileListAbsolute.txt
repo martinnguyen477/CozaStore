@@ -2,3 +2,14 @@ F:\Project\CozaStore\CozaStore.Data\bin\Debug\netcoreapp3.1\CozaStore.Model.dll
 F:\Project\CozaStore\CozaStore.Data\obj\Debug\netcoreapp3.1\CozaStore.Data.csprojAssemblyReference.cache
 F:\Project\CozaStore\CozaStore.Data\obj\Debug\netcoreapp3.1\CozaStore.Data.AssemblyInfoInputs.cache
 F:\Project\CozaStore\CozaStore.Data\obj\Debug\netcoreapp3.1\CozaStore.Data.AssemblyInfo.cs
+F:\Project\CozaStore\CozaStore.Data\bin\Debug\netcoreapp3.1\CozaStore.Data.deps.json
+F:\Project\CozaStore\CozaStore.Data\bin\Debug\netcoreapp3.1\CozaStore.Data.runtimeconfig.json
+F:\Project\CozaStore\CozaStore.Data\bin\Debug\netcoreapp3.1\CozaStore.Data.runtimeconfig.dev.json
+F:\Project\CozaStore\CozaStore.Data\bin\Debug\netcoreapp3.1\CozaStore.Data.dll
+F:\Project\CozaStore\CozaStore.Data\bin\Debug\netcoreapp3.1\CozaStore.Data.pdb
+F:\Project\CozaStore\CozaStore.Data\bin\Debug\netcoreapp3.1\CozaStore.Model.pdb
+F:\Project\CozaStore\CozaStore.Data\obj\Debug\netcoreapp3.1\CozaStore.Data.csproj.CoreCompileInputs.cache
+F:\Project\CozaStore\CozaStore.Data\obj\Debug\netcoreapp3.1\CozaStore.Data.csproj.CopyComplete
+F:\Project\CozaStore\CozaStore.Data\obj\Debug\netcoreapp3.1\CozaStore.Data.dll
+F:\Project\CozaStore\CozaStore.Data\obj\Debug\netcoreapp3.1\CozaStore.Data.pdb
+F:\Project\CozaStore\CozaStore.Data\obj\Debug\netcoreapp3.1\CozaStore.Data.genruntimeconfig.cache

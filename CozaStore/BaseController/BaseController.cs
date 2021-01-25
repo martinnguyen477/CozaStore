@@ -8,8 +8,13 @@ namespace CozaStore.BaseController
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Mvc;
 
-    public class BaseController
+    [Produces("application/json")]
+    [Route("api/[controller]/[action]")]
+    [Authorize]
+    public abstract class BaseController : Controller
     {
     }
 }
