@@ -21,36 +21,34 @@ namespace CozaStore.API.Controllers
             _postServices = postServices;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Index()
+        {
+            return Ok(await _postServices.GetAll());
+        }
+
         [HttpPost]
         // GET: api/<PageController>
-        public IActionResult Add([FromBody] PostModel postModel)
+        public IActionResult Insert([FromBody] PostModel postModel)
         {
-            _postServices.Add(postModel);
+            _postServices.InsertPost(postModel);
             return new OkObjectResult(postModel);
         }
 
         [HttpPut]
         public IActionResult Update([FromBody] PostModel postModel)
         {
-            _postServices.Update(postModel);
-            _postServices.SaveChanges();
+            _postServices.UpdatePost(postModel);
             return new OkObjectResult(postModel);
         }
 
         [HttpDelete]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete([FromBody] PostModel postModel)
         {
-            _postServices.Delete(id);
-            _postServices.SaveChanges();
-            return new OkObjectResult(id);
+            var status =await _postServices.DeletePost(postModel.Id);
+            return Ok(status);
         }
-        [HttpGet]
-        public IActionResult Index()
-        {
-            var model = _postServices.GetAll();
 
-            return new OkObjectResult(model);
 
-        }
     } 
 }

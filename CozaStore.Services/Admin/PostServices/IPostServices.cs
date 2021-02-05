@@ -7,24 +7,24 @@ namespace CozaStore.Services.PostServices
     using System;
     using System.Collections.Generic;
     using System.Text;
+    using System.Threading.Tasks;
     using CozaStore.Model.Model;
+    using CozaStore.Model.ResponseModel;
 
     public interface IPostServices
     {
-        void Add(PostModel postModel);
+        Task<int> InsertPost(PostModel postModel);
 
-        void Update(PostModel postModel);
+        Task<int> UpdatePost(PostModel postModel);
 
-        void Delete(int id);
+        Task<int> DeletePost(int postId);
 
-        List<PostModel> GetAll();
+        Task<List<PostModel>> GetAll();
 
-        List<PostModel> GetAllPaging(string keyword, int page, int pageSize);
+        Task<List<PostModel>> GetAllPaging(string keyword, int page, int pageSize);
 
-        List<PostModel> GetByAlias(string alias);
+        Task<List<PostModel>> GetByAlias(string alias);
 
-        PostModel GetById(int id);
-
-        void SaveChanges();
+        // Task<PostResponse> GetById(int postId);
     }
 }

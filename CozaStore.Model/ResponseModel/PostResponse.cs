@@ -1,18 +1,14 @@
-﻿// <copyright file="Post.cs" company="PlaceholderCompany">
+﻿// <copyright file="PostResponse.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace CozaStore.Model.Model
+namespace CozaStore.Model.ResponseModel
 {
+    using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using CozaStore.Model.BaseModel;
+    using System.Text;
 
-    /// <summary>
-    /// Post.
-    /// </summary>
-    public class PostModel : BaseTableWithId
+    public class PostResponse : BaseResponse
     {
         /// <summary>
         /// Gets or sets post Title.
@@ -20,9 +16,9 @@ namespace CozaStore.Model.Model
         public string PostTitle { get; set; }
 
         /// <summary>
-        /// Gets or sets topicId .
+        /// Gets or sets TopicName .
         /// </summary>
-        public int TopicId { get; set; }
+        public string TopicName { get; set; }
 
         /// <summary>
         /// Gets or sets image.
@@ -30,7 +26,7 @@ namespace CozaStore.Model.Model
         public string Image { get; set; }
 
         /// <summary>
-        /// Gets or sets descriptiop.
+        /// Gets or sets Detail.
         /// </summary>
         public string Detail { get; set; }
     }
