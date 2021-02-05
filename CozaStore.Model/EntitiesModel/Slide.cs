@@ -20,5 +20,9 @@ namespace CozaStore.Model.EntitiesModel
         [Required]
         [Column("SlideName")]
         public string SlideName { get; set; }
+
+        public string Image { get; set; }
+
+        public int Order { get; set; }
     }
 }
