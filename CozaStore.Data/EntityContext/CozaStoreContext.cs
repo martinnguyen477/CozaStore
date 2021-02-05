@@ -13,6 +13,16 @@ namespace CozaStore.Data.EntityContext
     /// </summary>
     public class CozaStoreContext : DbContext
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CozaStoreContext"/> class.
+        /// CozaStoreContext.
+        /// </summary>
+        /// <param name="options">options. ok.</param>
+        public CozaStoreContext(DbContextOptions options)
+            : base(options)
+        {
+        }
+
         #region Table SQL
 
         public DbSet<CategoryEntities> Categorie { get; set; }
@@ -36,16 +46,6 @@ namespace CozaStore.Data.EntityContext
         public DbSet<SupplierEntities> Supplier { get; set; }
 
         #endregion
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CozaStoreContext"/> class.
-        /// CozaStoreContext.
-        /// </summary>
-        /// <param name="options">options. ok.</param>
-        public CozaStoreContext(DbContextOptions options)
-            : base(options)
-        {
-        }
 
         /// <summary>
         /// OnModelCeating.

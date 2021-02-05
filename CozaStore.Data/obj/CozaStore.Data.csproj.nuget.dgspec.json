@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Project\\CozaStore\\CozaStore.Data\\CozaStore.Data.csproj": {}
+    "C:\\Users\\Nguyen Quoc Cuong\\Desktop\\CozaStore\\CozaStore.Data\\CozaStore.Data.csproj": {}
   },
   "projects": {
-    "F:\\Project\\CozaStore\\CozaStore.Data\\CozaStore.Data.csproj": {
+    "C:\\Users\\Nguyen Quoc Cuong\\Desktop\\CozaStore\\CozaStore.Data\\CozaStore.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Project\\CozaStore\\CozaStore.Data\\CozaStore.Data.csproj",
+        "projectUniqueName": "C:\\Users\\Nguyen Quoc Cuong\\Desktop\\CozaStore\\CozaStore.Data\\CozaStore.Data.csproj",
         "projectName": "CozaStore.Data",
-        "projectPath": "F:\\Project\\CozaStore\\CozaStore.Data\\CozaStore.Data.csproj",
+        "projectPath": "C:\\Users\\Nguyen Quoc Cuong\\Desktop\\CozaStore\\CozaStore.Data\\CozaStore.Data.csproj",
         "packagesPath": "C:\\Users\\Nguyen Quoc Cuong\\.nuget\\packages\\",
-        "outputPath": "F:\\Project\\CozaStore\\CozaStore.Data\\obj\\",
+        "outputPath": "C:\\Users\\Nguyen Quoc Cuong\\Desktop\\CozaStore\\CozaStore.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Nguyen Quoc Cuong\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "F:\\Project\\CozaStore\\CozaStore.Model\\CozaStore.Model.csproj": {
-                "projectPath": "F:\\Project\\CozaStore\\CozaStore.Model\\CozaStore.Model.csproj"
+              "C:\\Users\\Nguyen Quoc Cuong\\Desktop\\CozaStore\\CozaStore.Model\\CozaStore.Model.csproj": {
+                "projectPath": "C:\\Users\\Nguyen Quoc Cuong\\Desktop\\CozaStore\\CozaStore.Model\\CozaStore.Model.csproj"
               }
             }
           }
@@ -64,6 +64,14 @@
               "target": "Package",
               "version": "[3.1.10, )"
             },
+            "Microsoft.Extensions.Configuration.FileExtensions": {
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
             "StyleCop.Analyzers": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -90,14 +98,14 @@
         }
       }
     },
-    "F:\\Project\\CozaStore\\CozaStore.Model\\CozaStore.Model.csproj": {
+    "C:\\Users\\Nguyen Quoc Cuong\\Desktop\\CozaStore\\CozaStore.Model\\CozaStore.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Project\\CozaStore\\CozaStore.Model\\CozaStore.Model.csproj",
+        "projectUniqueName": "C:\\Users\\Nguyen Quoc Cuong\\Desktop\\CozaStore\\CozaStore.Model\\CozaStore.Model.csproj",
         "projectName": "CozaStore.Model",
-        "projectPath": "F:\\Project\\CozaStore\\CozaStore.Model\\CozaStore.Model.csproj",
+        "projectPath": "C:\\Users\\Nguyen Quoc Cuong\\Desktop\\CozaStore\\CozaStore.Model\\CozaStore.Model.csproj",
         "packagesPath": "C:\\Users\\Nguyen Quoc Cuong\\.nuget\\packages\\",
-        "outputPath": "F:\\Project\\CozaStore\\CozaStore.Model\\obj\\",
+        "outputPath": "C:\\Users\\Nguyen Quoc Cuong\\Desktop\\CozaStore\\CozaStore.Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Nguyen Quoc Cuong\\AppData\\Roaming\\NuGet\\NuGet.Config",

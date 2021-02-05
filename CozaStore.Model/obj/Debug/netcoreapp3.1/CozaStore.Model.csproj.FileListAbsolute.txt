@@ -7,3 +7,12 @@ F:\Project\CozaStore\CozaStore.Model\obj\Debug\netcoreapp3.1\CozaStore.Model.Ass
 F:\Project\CozaStore\CozaStore.Model\obj\Debug\netcoreapp3.1\CozaStore.Model.csproj.CoreCompileInputs.cache
 F:\Project\CozaStore\CozaStore.Model\obj\Debug\netcoreapp3.1\CozaStore.Model.dll
 F:\Project\CozaStore\CozaStore.Model\obj\Debug\netcoreapp3.1\CozaStore.Model.pdb
+C:\Users\Nguyen Quoc Cuong\Desktop\CozaStore\CozaStore.Model\bin\Debug\netcoreapp3.1\CozaStore.Model.deps.json
+C:\Users\Nguyen Quoc Cuong\Desktop\CozaStore\CozaStore.Model\bin\Debug\netcoreapp3.1\CozaStore.Model.dll
+C:\Users\Nguyen Quoc Cuong\Desktop\CozaStore\CozaStore.Model\bin\Debug\netcoreapp3.1\CozaStore.Model.pdb
+C:\Users\Nguyen Quoc Cuong\Desktop\CozaStore\CozaStore.Model\obj\Debug\netcoreapp3.1\CozaStore.Model.csprojAssemblyReference.cache
+C:\Users\Nguyen Quoc Cuong\Desktop\CozaStore\CozaStore.Model\obj\Debug\netcoreapp3.1\CozaStore.Model.AssemblyInfoInputs.cache
+C:\Users\Nguyen Quoc Cuong\Desktop\CozaStore\CozaStore.Model\obj\Debug\netcoreapp3.1\CozaStore.Model.AssemblyInfo.cs
+C:\Users\Nguyen Quoc Cuong\Desktop\CozaStore\CozaStore.Model\obj\Debug\netcoreapp3.1\CozaStore.Model.csproj.CoreCompileInputs.cache
+C:\Users\Nguyen Quoc Cuong\Desktop\CozaStore\CozaStore.Model\obj\Debug\netcoreapp3.1\CozaStore.Model.dll
+C:\Users\Nguyen Quoc Cuong\Desktop\CozaStore\CozaStore.Model\obj\Debug\netcoreapp3.1\CozaStore.Model.pdb

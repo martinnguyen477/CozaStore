@@ -8,7 +8,7 @@ namespace CozaStore.Model.Enum
     using System.Collections.Generic;
     using System.Text;
 
-    class ERole
+    public class ERole
     {
     }
 }

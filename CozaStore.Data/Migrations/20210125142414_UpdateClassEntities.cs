@@ -1,4 +1,8 @@
-﻿namespace CozaStore.Data.Migrations
+﻿// <copyright file="20210125142414_UpdateClassEntities.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace CozaStore.Data.Migrations
 {
     using Microsoft.EntityFrameworkCore.Migrations;
 

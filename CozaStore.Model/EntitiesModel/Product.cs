@@ -30,14 +30,28 @@ namespace CozaStore.Model.EntitiesModel
         /// <summary>
         /// Gets or sets productDescription.
         /// </summary>
+        [Required]
         [Column("Description")]
         public string ProductDescription { get; set; }
 
         /// <summary>
+        /// Gets or sets productDescription.
+        /// </summary>
+        [Column("ProductDetail")]
+        public string ProductDetail { get; set; }
+
+        /// <summary>
         /// Gets or sets price.
         /// </summary>
+        [Required]
         [Column("Price")]
         public decimal Price { get; set; }
+
+        /// <summary>
+        /// Gets or sets price.
+        /// </summary>
+        [Column("PriceSale")]
+        public decimal PriceSale { get; set; }
 
         /// <summary>
         /// Gets or sets supplier.
@@ -48,25 +62,15 @@ namespace CozaStore.Model.EntitiesModel
         /// <summary>
         /// Gets or sets image for product.
         /// </summary>
+        [Required]
         [Column("Image")]
         public string Image { get; set; }
 
         /// <summary>
         /// Gets or sets quantity Product.
         /// </summary>
+        [Required]
         [Column("Quantity")]
         public int Quantity { get; set; }
-
-        /// <summary>
-        /// Gets or sets product size.
-        /// </summary>
-        [Column("Size")]
-        public string Size { get; set; }
-
-        /// <summary>
-        /// Gets or sets product color.
-        /// </summary>
-        [Column("Color")]
-        public string Color { get; set; }
     }
 }

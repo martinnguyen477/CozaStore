@@ -42,20 +42,5 @@ namespace CozaStore.Model.Model
         /// Gets or sets image for product.
         /// </summary>
         public string Image { get; set; }
-
-        /// <summary>
-        /// Gets or sets quantity Product.
-        /// </summary>
-        public int Quantity { get; set; }
-
-        /// <summary>
-        /// Gets or sets product size.
-        /// </summary>
-        public string Size { get; set; }
-
-        /// <summary>
-        /// Gets or sets product color.
-        /// </summary>
-        public string Color { get; set; }
     }
 }

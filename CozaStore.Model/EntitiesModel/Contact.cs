@@ -14,12 +14,10 @@ namespace CozaStore.Model.EntitiesModel
     [Table("Contact")]
     public class ContactEntities : BaseTableWithId
     {
-        /// <summary>
-        /// Gets or sets contactTitle.
-        /// </summary>
         [Required]
-        [Column("ContactTitle")]
-        public string ContactTitle { get; set; }
+        [MaxLength(200)]
+        [Column("FullName")]
+        public string FullName { get; set; }
 
         /// <summary>
         /// Gets or sets email.
@@ -29,10 +27,26 @@ namespace CozaStore.Model.EntitiesModel
         public string Email { get; set; }
 
         /// <summary>
+        /// Gets or sets email.
+        /// </summary>
+        [Required]
+        [MaxLength(20)]
+        [Column("PhoneNumber")]
+        public string PhoneNumber { get; set; }
+
+        /// <summary>
+        /// Gets or sets contactTitle.
+        /// </summary>
+        [Required]
+        [Column("ContactTitle")]
+        public string ContactTitle { get; set; }
+
+        /// <summary>
         /// Gets or sets description.
         /// </summary>
         [Required]
-        [Column("Description")]
-        public string Description { get; set; }
+        [Column("Message")]
+        [MaxLength(500)]
+        public string Message { get; set; }
     }
 }
