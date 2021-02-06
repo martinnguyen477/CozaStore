@@ -5691,6 +5691,7 @@
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 8.1.0",
       "CozaStore.Data >= 1.0.0",
       "CozaStore.Services >= 1.0.0",
+      "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 3.1.10",
       "Microsoft.EntityFrameworkCore >= 3.1.10",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.10.9"
     ]
@@ -5748,6 +5749,10 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": {
             "target": "Package",
             "version": "[8.1.0, )"
+          },
+          "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+            "target": "Package",
+            "version": "[3.1.10, )"
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
