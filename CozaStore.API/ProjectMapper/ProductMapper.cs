@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using CozaStore.Model.ResponseModel;
 
 namespace CozaStore.API.ProjectMapper
 {
@@ -15,6 +16,8 @@ namespace CozaStore.API.ProjectMapper
         {
             CreateMap<ProductEntities, ProductModel>();
             CreateMap<ProductModel,ProductEntities>();
+            CreateMap<ProductEntities, ListProducts>();
+            CreateMap<ListProducts, ProductEntities>();
         }
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZMoUbLE3Bui3H+rjcSOeo5BuDbXJaQtgiGhlVwyNnhBuT0XTD/qA8OShSZzzKwLIh/VtAR4nItz0wWYPiwKtPA==",
+  "dgSpecHash": "1O07xHpNpwMp7l4DImogrpgZnQjmgWY0Mf+1wgyuLCEcgqOpn3CSdCEva5YOJeya6IAz/kAX+Ti+gIWc4Mqg1w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nguyen Quoc Cuong\\Desktop\\CozaStore\\CozaStore.API\\CozaStore.API.csproj",
+  "projectFilePath": "C:\\Users\\Nguyen Quoc Cuong\\source\\repos\\CozaStore\\CozaStore.API\\CozaStore.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nguyen Quoc Cuong\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Nguyen Quoc Cuong\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.0\\automapper.extensions.microsoft.dependencyinjection.8.1.0.nupkg.sha512",
@@ -13,6 +13,7 @@
     "C:\\Users\\Nguyen Quoc Cuong\\.nuget\\packages\\microsoft.entityframeworkcore\\3.1.10\\microsoft.entityframeworkcore.3.1.10.nupkg.sha512",
     "C:\\Users\\Nguyen Quoc Cuong\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\3.1.10\\microsoft.entityframeworkcore.abstractions.3.1.10.nupkg.sha512",
     "C:\\Users\\Nguyen Quoc Cuong\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\3.1.10\\microsoft.entityframeworkcore.analyzers.3.1.10.nupkg.sha512",
+    "C:\\Users\\Nguyen Quoc Cuong\\.nuget\\packages\\microsoft.entityframeworkcore.design\\3.1.10\\microsoft.entityframeworkcore.design.3.1.10.nupkg.sha512",
     "C:\\Users\\Nguyen Quoc Cuong\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\3.1.10\\microsoft.entityframeworkcore.relational.3.1.10.nupkg.sha512",
     "C:\\Users\\Nguyen Quoc Cuong\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\3.1.10\\microsoft.entityframeworkcore.sqlserver.3.1.10.nupkg.sha512",
     "C:\\Users\\Nguyen Quoc Cuong\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\3.1.10\\microsoft.extensions.caching.abstractions.3.1.10.nupkg.sha512",

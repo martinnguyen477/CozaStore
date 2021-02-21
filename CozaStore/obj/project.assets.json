@@ -6473,11 +6473,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nguyen Quoc Cuong\\Desktop\\CozaStore\\CozaStore\\CozaStore.WebApp.csproj",
+      "projectUniqueName": "C:\\Users\\Nguyen Quoc Cuong\\source\\repos\\CozaStore\\CozaStore\\CozaStore.WebApp.csproj",
       "projectName": "CozaStore.WebApp",
-      "projectPath": "C:\\Users\\Nguyen Quoc Cuong\\Desktop\\CozaStore\\CozaStore\\CozaStore.WebApp.csproj",
+      "projectPath": "C:\\Users\\Nguyen Quoc Cuong\\source\\repos\\CozaStore\\CozaStore\\CozaStore.WebApp.csproj",
       "packagesPath": "C:\\Users\\Nguyen Quoc Cuong\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nguyen Quoc Cuong\\Desktop\\CozaStore\\CozaStore\\obj\\",
+      "outputPath": "C:\\Users\\Nguyen Quoc Cuong\\source\\repos\\CozaStore\\CozaStore\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Nguyen Quoc Cuong\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6494,11 +6494,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Nguyen Quoc Cuong\\Desktop\\CozaStore\\CozaStore.Model\\CozaStore.Model.csproj": {
-              "projectPath": "C:\\Users\\Nguyen Quoc Cuong\\Desktop\\CozaStore\\CozaStore.Model\\CozaStore.Model.csproj"
+            "C:\\Users\\Nguyen Quoc Cuong\\source\\repos\\CozaStore\\CozaStore.Model\\CozaStore.Model.csproj": {
+              "projectPath": "C:\\Users\\Nguyen Quoc Cuong\\source\\repos\\CozaStore\\CozaStore.Model\\CozaStore.Model.csproj"
             },
-            "C:\\Users\\Nguyen Quoc Cuong\\Desktop\\CozaStore\\CozaStore.Services\\CozaStore.Services.csproj": {
-              "projectPath": "C:\\Users\\Nguyen Quoc Cuong\\Desktop\\CozaStore\\CozaStore.Services\\CozaStore.Services.csproj"
+            "C:\\Users\\Nguyen Quoc Cuong\\source\\repos\\CozaStore\\CozaStore.Services\\CozaStore.Services.csproj": {
+              "projectPath": "C:\\Users\\Nguyen Quoc Cuong\\source\\repos\\CozaStore\\CozaStore.Services\\CozaStore.Services.csproj"
             }
           }
         }

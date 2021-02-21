@@ -221,9 +221,9 @@ namespace CozaStore.Data.Migrations
                         .HasColumnName("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("Quantity")
+                    b.Property<int>("Quantity")
                         .HasColumnName("Quantity")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("int");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
@@ -247,7 +247,7 @@ namespace CozaStore.Data.Migrations
                             OrderId = 1,
                             Price = 45000000m,
                             ProductId = 1,
-                            Quantity = 2m,
+                            Quantity = 2,
                             Status = 1,
                             UpdateBy = 1,
                             UpdateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -260,7 +260,7 @@ namespace CozaStore.Data.Migrations
                             OrderId = 2,
                             Price = 45000000m,
                             ProductId = 3,
-                            Quantity = 2m,
+                            Quantity = 2,
                             Status = 1,
                             UpdateBy = 1,
                             UpdateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -273,7 +273,7 @@ namespace CozaStore.Data.Migrations
                             OrderId = 3,
                             Price = 45000000m,
                             ProductId = 4,
-                            Quantity = 2m,
+                            Quantity = 2,
                             Status = 1,
                             UpdateBy = 1,
                             UpdateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -286,7 +286,7 @@ namespace CozaStore.Data.Migrations
                             OrderId = 3,
                             Price = 45000000m,
                             ProductId = 2,
-                            Quantity = 2m,
+                            Quantity = 2,
                             Status = 1,
                             UpdateBy = 1,
                             UpdateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -299,7 +299,7 @@ namespace CozaStore.Data.Migrations
                             OrderId = 4,
                             Price = 45000000m,
                             ProductId = 5,
-                            Quantity = 2m,
+                            Quantity = 2,
                             Status = 1,
                             UpdateBy = 1,
                             UpdateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -312,7 +312,7 @@ namespace CozaStore.Data.Migrations
                             OrderId = 5,
                             Price = 45000000m,
                             ProductId = 4,
-                            Quantity = 2m,
+                            Quantity = 2,
                             Status = 1,
                             UpdateBy = 1,
                             UpdateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -325,7 +325,7 @@ namespace CozaStore.Data.Migrations
                             OrderId = 6,
                             Price = 45000000m,
                             ProductId = 12,
-                            Quantity = 2m,
+                            Quantity = 2,
                             Status = 1,
                             UpdateBy = 1,
                             UpdateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)

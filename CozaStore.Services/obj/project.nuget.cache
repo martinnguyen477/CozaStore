@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vTer+Ht+RLXDS7eYmBxu6i/960dRStblZRmMQL7Gy+XvN7ZDlxsHGJw65r7etDjt5F86LoGV5gPNnJILAHUeYA==",
+  "dgSpecHash": "rMCgIcYE0T/Pk8eGtl11+kmfGdQqFnjMVReycVVI0i+3J21eJllIDC33bi26rjIfEJIqQ/uy5ISfdflZaLxUtA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nguyen Quoc Cuong\\Desktop\\CozaStore\\CozaStore.Services\\CozaStore.Services.csproj",
+  "projectFilePath": "C:\\Users\\Nguyen Quoc Cuong\\source\\repos\\CozaStore\\CozaStore.Services\\CozaStore.Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nguyen Quoc Cuong\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Nguyen Quoc Cuong\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.0\\automapper.extensions.microsoft.dependencyinjection.8.1.0.nupkg.sha512",

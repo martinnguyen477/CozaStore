@@ -4,6 +4,7 @@
 
 namespace CozaStore.Model.EntitiesModel
 {
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using CozaStore.Model.BaseModel;
@@ -44,13 +45,13 @@ namespace CozaStore.Model.EntitiesModel
         /// Gets or sets price.
         /// </summary>
         [Required]
-        [Column("Price")]
+        [Column("Price", TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }
 
         /// <summary>
         /// Gets or sets price.
         /// </summary>
-        [Column("PriceSale")]
+        [Column("PriceSale", TypeName = "decimal(18,2)")]
         public decimal PriceSale { get; set; }
 
         /// <summary>

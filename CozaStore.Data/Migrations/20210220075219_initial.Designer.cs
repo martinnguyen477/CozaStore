@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CozaStore.Data.Migrations
 {
     [DbContext(typeof(CozaStoreContext))]
-    [Migration("20210125145601_UpdatePrice")]
-    partial class UpdatePrice
+    [Migration("20210220075219_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,6 +39,14 @@ namespace CozaStore.Data.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Orders")
+                        .HasColumnName("Orders")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ParentId")
+                        .HasColumnName("ParentId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
@@ -59,6 +67,8 @@ namespace CozaStore.Data.Migrations
                             CategoryName = "Collections Woman",
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Orders = 0,
+                            ParentId = 0,
                             Status = 1,
                             UpdateBy = 1,
                             UpdateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -69,6 +79,8 @@ namespace CozaStore.Data.Migrations
                             CategoryName = "Collections Man",
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Orders = 0,
+                            ParentId = 0,
                             Status = 1,
                             UpdateBy = 1,
                             UpdateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -79,6 +91,8 @@ namespace CozaStore.Data.Migrations
                             CategoryName = "Collections Children",
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Orders = 0,
+                            ParentId = 0,
                             Status = 1,
                             UpdateBy = 1,
                             UpdateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -103,15 +117,28 @@ namespace CozaStore.Data.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnName("Description")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnName("Email")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnName("FullName")
+                        .HasColumnType("nvarchar(200)")
+                        .HasMaxLength(200);
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnName("Message")
+                        .HasColumnType("nvarchar(500)")
+                        .HasMaxLength(500);
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnName("PhoneNumber")
+                        .HasColumnType("nvarchar(20)")
+                        .HasMaxLength(20);
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
@@ -133,8 +160,10 @@ namespace CozaStore.Data.Migrations
                             ContactTitle = "Tư Vấn",
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Yêu cầu cửa hàng thêm quần áo",
                             Email = "nqcuong720@gmail.com",
+                            FullName = "Nguyễn Quốc Cường",
+                            Message = "Yêu cầu cửa hàng thêm quần áo",
+                            PhoneNumber = "0377077630",
                             Status = 1,
                             UpdateBy = 1,
                             UpdateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -145,8 +174,10 @@ namespace CozaStore.Data.Migrations
                             ContactTitle = "Phản Hồi",
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Yêu cầu cửa hàng thêm quần áo",
                             Email = "nqcuong720@gmail.com",
+                            FullName = "Nguyễn Quốc Khánh",
+                            Message = "Yêu cầu cửa hàng thêm quần áo",
+                            PhoneNumber = "0377077630",
                             Status = 1,
                             UpdateBy = 1,
                             UpdateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -157,8 +188,10 @@ namespace CozaStore.Data.Migrations
                             ContactTitle = "Khiển Trách",
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Yêu cầu cửa hàng thêm quần áo",
                             Email = "nqcuong720@gmail.com",
+                            FullName = "Nguyễn Quốc Duy",
+                            Message = "Yêu cầu cửa hàng thêm quần áo",
+                            PhoneNumber = "0377077630",
                             Status = 1,
                             UpdateBy = 1,
                             UpdateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -172,19 +205,11 @@ namespace CozaStore.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("BillDate")
-                        .HasColumnName("BillDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<int>("CreateBy")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("Discount")
-                        .HasColumnName("Discount")
-                        .HasColumnType("int");
 
                     b.Property<int>("OrderId")
                         .HasColumnName("OrderId")
@@ -198,16 +223,12 @@ namespace CozaStore.Data.Migrations
                         .HasColumnName("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("Quantity")
+                    b.Property<int>("Quantity")
                         .HasColumnName("Quantity")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("int");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
-
-                    b.Property<decimal>("Total")
-                        .HasColumnName("Total")
-                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("UpdateBy")
                         .HasColumnType("int");
@@ -223,112 +244,91 @@ namespace CozaStore.Data.Migrations
                         new
                         {
                             Id = 1,
-                            BillDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Discount = 20,
                             OrderId = 1,
                             Price = 45000000m,
                             ProductId = 1,
-                            Quantity = 2m,
+                            Quantity = 2,
                             Status = 1,
-                            Total = 9000000m,
                             UpdateBy = 1,
                             UpdateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
-                            BillDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Discount = 20,
                             OrderId = 2,
                             Price = 45000000m,
                             ProductId = 3,
-                            Quantity = 2m,
+                            Quantity = 2,
                             Status = 1,
-                            Total = 9000000m,
                             UpdateBy = 1,
                             UpdateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 3,
-                            BillDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Discount = 20,
                             OrderId = 3,
                             Price = 45000000m,
                             ProductId = 4,
-                            Quantity = 2m,
+                            Quantity = 2,
                             Status = 1,
-                            Total = 9000000m,
                             UpdateBy = 1,
                             UpdateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 4,
-                            BillDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Discount = 20,
                             OrderId = 3,
                             Price = 45000000m,
                             ProductId = 2,
-                            Quantity = 2m,
+                            Quantity = 2,
                             Status = 1,
-                            Total = 9000000m,
                             UpdateBy = 1,
                             UpdateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 5,
-                            BillDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Discount = 20,
                             OrderId = 4,
                             Price = 45000000m,
                             ProductId = 5,
-                            Quantity = 2m,
+                            Quantity = 2,
                             Status = 1,
-                            Total = 9000000m,
                             UpdateBy = 1,
                             UpdateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 6,
-                            BillDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Discount = 20,
                             OrderId = 5,
                             Price = 45000000m,
                             ProductId = 4,
-                            Quantity = 2m,
+                            Quantity = 2,
                             Status = 1,
-                            Total = 9000000m,
                             UpdateBy = 1,
                             UpdateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 7,
-                            BillDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Discount = 20,
                             OrderId = 6,
                             Price = 45000000m,
                             ProductId = 12,
-                            Quantity = 2m,
+                            Quantity = 2,
                             Status = 1,
-                            Total = 9000000m,
                             UpdateBy = 1,
                             UpdateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
@@ -355,19 +355,20 @@ namespace CozaStore.Data.Migrations
                         .HasColumnName("OrderDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("OrderShipAdsress")
+                    b.Property<string>("ShipAdsress")
                         .IsRequired()
-                        .HasColumnName("OrderShipAddress")
+                        .HasColumnName("ShipAddress")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("OrderShipPhone")
+                    b.Property<string>("ShipEmail")
                         .IsRequired()
-                        .HasColumnName("OrderShipPhone")
+                        .HasColumnName("ShipEmail")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ShipDate")
-                        .HasColumnName("ShipDate")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("ShipPhone")
+                        .IsRequired()
+                        .HasColumnName("ShipPhone")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
@@ -394,9 +395,9 @@ namespace CozaStore.Data.Migrations
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Note = "None",
                             OrderDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            OrderShipAdsress = "351A Lạc Long Quân P5 Quận 11 TP.Hồ Chí Minh",
-                            OrderShipPhone = "0377077630",
-                            ShipDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ShipAdsress = "351A Lạc Long Quân P5 Quận 11 TP.Hồ Chí Minh",
+                            ShipEmail = "nqcuong720@gmail.com",
+                            ShipPhone = "0377077630",
                             Status = 1,
                             UpdateBy = 1,
                             UpdateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -409,9 +410,9 @@ namespace CozaStore.Data.Migrations
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Note = "None",
                             OrderDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            OrderShipAdsress = "351A Lạc Long Quân P5 Quận 11 TP.Hồ Chí Minh",
-                            OrderShipPhone = "0377077630",
-                            ShipDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ShipAdsress = "351A Lạc Long Quân P5 Quận 11 TP.Hồ Chí Minh",
+                            ShipEmail = "nqcuong720@gmail.com",
+                            ShipPhone = "0377077630",
                             Status = 1,
                             UpdateBy = 1,
                             UpdateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -424,9 +425,9 @@ namespace CozaStore.Data.Migrations
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Note = "None",
                             OrderDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            OrderShipAdsress = "351A Lạc Long Quân P5 Quận 11 TP.Hồ Chí Minh",
-                            OrderShipPhone = "0377077630",
-                            ShipDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ShipAdsress = "351A Lạc Long Quân P5 Quận 11 TP.Hồ Chí Minh",
+                            ShipEmail = "nqcuong720@gmail.com",
+                            ShipPhone = "0377077630",
                             Status = 1,
                             UpdateBy = 1,
                             UpdateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -439,9 +440,9 @@ namespace CozaStore.Data.Migrations
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Note = "None",
                             OrderDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            OrderShipAdsress = "351A Lạc Long Quân P5 Quận 11 TP.Hồ Chí Minh",
-                            OrderShipPhone = "0377077630",
-                            ShipDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ShipAdsress = "351A Lạc Long Quân P5 Quận 11 TP.Hồ Chí Minh",
+                            ShipEmail = "nqcuong720@gmail.com",
+                            ShipPhone = "0377077630",
                             Status = 1,
                             UpdateBy = 1,
                             UpdateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -454,9 +455,9 @@ namespace CozaStore.Data.Migrations
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Note = "None",
                             OrderDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            OrderShipAdsress = "351A Lạc Long Quân P5 Quận 11 TP.Hồ Chí Minh",
-                            OrderShipPhone = "0377077630",
-                            ShipDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ShipAdsress = "351A Lạc Long Quân P5 Quận 11 TP.Hồ Chí Minh",
+                            ShipEmail = "nqcuong720@gmail.com",
+                            ShipPhone = "0377077630",
                             Status = 1,
                             UpdateBy = 1,
                             UpdateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -469,9 +470,9 @@ namespace CozaStore.Data.Migrations
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Note = "None",
                             OrderDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            OrderShipAdsress = "351A Lạc Long Quân P5 Quận 11 TP.Hồ Chí Minh",
-                            OrderShipPhone = "0377077630",
-                            ShipDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ShipAdsress = "351A Lạc Long Quân P5 Quận 11 TP.Hồ Chí Minh",
+                            ShipEmail = "nqcuong720@gmail.com",
+                            ShipPhone = "0377077630",
                             Status = 1,
                             UpdateBy = 1,
                             UpdateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -492,11 +493,13 @@ namespace CozaStore.Data.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Description")
-                        .HasColumnName("Description")
+                    b.Property<string>("Detail")
+                        .IsRequired()
+                        .HasColumnName("Detail")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Image")
+                        .IsRequired()
                         .HasColumnName("Image")
                         .HasColumnType("nvarchar(max)");
 
@@ -528,7 +531,7 @@ namespace CozaStore.Data.Migrations
                             Id = 1,
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Mừng xuân, mừng đảng",
+                            Detail = "Mừng xuân, mừng đảng",
                             Image = "images/post/hinh.jpg",
                             PostTitle = "Khuyến mãi Tết Tân Sửu",
                             Status = 1,
@@ -541,7 +544,7 @@ namespace CozaStore.Data.Migrations
                             Id = 2,
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Mừng giáng sinh",
+                            Detail = "Mừng giáng sinh",
                             Image = "images/post/hinh.jpg",
                             PostTitle = "Lễ Giang Sinh",
                             Status = 1,
@@ -554,7 +557,7 @@ namespace CozaStore.Data.Migrations
                             Id = 3,
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Mừng khai trương",
+                            Detail = "Mừng khai trương",
                             Image = "images/post/hinh.jpg",
                             PostTitle = "Giảm giá 50%",
                             Status = 1,
@@ -567,7 +570,7 @@ namespace CozaStore.Data.Migrations
                             Id = 4,
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Siêu giảm giá !",
+                            Detail = "Siêu giảm giá !",
                             Image = "images/post/hinh.jpg",
                             PostTitle = "Black Friday",
                             Status = 1,
@@ -580,7 +583,7 @@ namespace CozaStore.Data.Migrations
                             Id = 5,
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Ngày quốc tế phụ nữ",
+                            Detail = "Ngày quốc tế phụ nữ",
                             Image = "images/post/hinh.jpg",
                             PostTitle = "Khuyễn mãi nhân ngày 8-3",
                             Status = 1,
@@ -601,10 +604,6 @@ namespace CozaStore.Data.Migrations
                         .HasColumnName("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Color")
-                        .HasColumnName("Color")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("CreateBy")
                         .HasColumnType("int");
 
@@ -612,6 +611,7 @@ namespace CozaStore.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Image")
+                        .IsRequired()
                         .HasColumnName("Image")
                         .HasColumnType("nvarchar(max)");
 
@@ -619,8 +619,17 @@ namespace CozaStore.Data.Migrations
                         .HasColumnName("Price")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<decimal>("PriceSale")
+                        .HasColumnName("PriceSale")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("ProductDescription")
+                        .IsRequired()
                         .HasColumnName("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProductDetail")
+                        .HasColumnName("ProductDetail")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProductName")
@@ -631,10 +640,6 @@ namespace CozaStore.Data.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnName("Quantity")
                         .HasColumnType("int");
-
-                    b.Property<string>("Size")
-                        .HasColumnName("Size")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
@@ -658,15 +663,14 @@ namespace CozaStore.Data.Migrations
                         {
                             Id = 1,
                             CategoryId = 2,
-                            Color = "Black",
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "images/product/men/aokhoacadidas.jpg",
                             Price = 480000m,
+                            PriceSale = 0m,
                             ProductDescription = "Áo thời trang mùa đông",
                             ProductName = "Áo thể thao nam Adidas",
                             Quantity = 150,
-                            Size = "XS",
                             Status = 1,
                             SupplierId = 1,
                             UpdateBy = 1,
@@ -676,15 +680,14 @@ namespace CozaStore.Data.Migrations
                         {
                             Id = 2,
                             CategoryId = 1,
-                            Color = "Black",
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "images/product/men/aokhoacadidas.jpg",
                             Price = 310000m,
+                            PriceSale = 0m,
                             ProductDescription = "Áo thời trang mùa đông",
                             ProductName = "Áo thể thao nữ Adidas",
                             Quantity = 150,
-                            Size = "XS",
                             Status = 1,
                             SupplierId = 4,
                             UpdateBy = 1,
@@ -694,15 +697,14 @@ namespace CozaStore.Data.Migrations
                         {
                             Id = 3,
                             CategoryId = 3,
-                            Color = "Black",
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "images/product/men/aokhoacadidas.jpg",
                             Price = 190000m,
+                            PriceSale = 0m,
                             ProductDescription = "Áo thời trang mùa đông",
                             ProductName = "Áo thể thao trẻ em Adidas",
                             Quantity = 150,
-                            Size = "XS",
                             Status = 1,
                             SupplierId = 1,
                             UpdateBy = 1,
@@ -712,15 +714,14 @@ namespace CozaStore.Data.Migrations
                         {
                             Id = 4,
                             CategoryId = 2,
-                            Color = "Black",
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "images/product/men/aokhoacadidas.jpg",
                             Price = 490000m,
+                            PriceSale = 0m,
                             ProductDescription = "Áo thời trang mùa đông",
                             ProductName = "Quần thể thao nam Adidas",
                             Quantity = 150,
-                            Size = "XS",
                             Status = 1,
                             SupplierId = 2,
                             UpdateBy = 1,
@@ -730,15 +731,14 @@ namespace CozaStore.Data.Migrations
                         {
                             Id = 5,
                             CategoryId = 1,
-                            Color = "Black",
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "images/product/men/aokhoacadidas.jpg",
                             Price = 390000m,
+                            PriceSale = 0m,
                             ProductDescription = "Áo thời trang mùa đông",
                             ProductName = "Quần thể thao nữ Adidas",
                             Quantity = 150,
-                            Size = "XS",
                             Status = 1,
                             SupplierId = 1,
                             UpdateBy = 1,
@@ -748,15 +748,14 @@ namespace CozaStore.Data.Migrations
                         {
                             Id = 6,
                             CategoryId = 3,
-                            Color = "Black",
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "images/product/men/aokhoacadidas.jpg",
                             Price = 190000m,
+                            PriceSale = 0m,
                             ProductDescription = "Áo thời trang mùa đông",
                             ProductName = "Quần thể thao trẻ em Adidas",
                             Quantity = 150,
-                            Size = "XS",
                             Status = 1,
                             SupplierId = 1,
                             UpdateBy = 1,
@@ -766,15 +765,14 @@ namespace CozaStore.Data.Migrations
                         {
                             Id = 7,
                             CategoryId = 2,
-                            Color = "Black",
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "images/product/men/aokhoacadidas.jpg",
                             Price = 940000m,
+                            PriceSale = 0m,
                             ProductDescription = "Áo thời trang mùa đông",
                             ProductName = "Giày thể thao - Nam ",
                             Quantity = 150,
-                            Size = "XS",
                             Status = 1,
                             SupplierId = 3,
                             UpdateBy = 1,
@@ -784,15 +782,14 @@ namespace CozaStore.Data.Migrations
                         {
                             Id = 8,
                             CategoryId = 1,
-                            Color = "Black",
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "images/product/men/aokhoacadidas.jpg",
                             Price = 510000m,
+                            PriceSale = 0m,
                             ProductDescription = "Áo thời trang mùa đông",
                             ProductName = "Guốc Juno",
                             Quantity = 150,
-                            Size = "XS",
                             Status = 1,
                             SupplierId = 2,
                             UpdateBy = 1,
@@ -802,15 +799,14 @@ namespace CozaStore.Data.Migrations
                         {
                             Id = 9,
                             CategoryId = 3,
-                            Color = "Black",
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "images/product/men/aokhoacadidas.jpg",
                             Price = 220000m,
+                            PriceSale = 0m,
                             ProductDescription = "Áo thời trang mùa đông",
                             ProductName = "Dép Bitis",
                             Quantity = 150,
-                            Size = "XS",
                             Status = 1,
                             SupplierId = 4,
                             UpdateBy = 1,
@@ -820,15 +816,14 @@ namespace CozaStore.Data.Migrations
                         {
                             Id = 10,
                             CategoryId = 2,
-                            Color = "Black",
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "images/product/men/aokhoacadidas.jpg",
                             Price = 790000m,
+                            PriceSale = 0m,
                             ProductDescription = "Áo thời trang mùa đông",
                             ProductName = "Áo khoác nam",
                             Quantity = 150,
-                            Size = "XS",
                             Status = 1,
                             SupplierId = 3,
                             UpdateBy = 1,
@@ -838,15 +833,14 @@ namespace CozaStore.Data.Migrations
                         {
                             Id = 11,
                             CategoryId = 2,
-                            Color = "Black",
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "images/product/men/aokhoacadidas.jpg",
                             Price = 19000m,
+                            PriceSale = 0m,
                             ProductDescription = "Áo thời trang mùa đông",
                             ProductName = "Tất nữ",
                             Quantity = 150,
-                            Size = "XS",
                             Status = 1,
                             SupplierId = 1,
                             UpdateBy = 1,
@@ -856,15 +850,14 @@ namespace CozaStore.Data.Migrations
                         {
                             Id = 12,
                             CategoryId = 3,
-                            Color = "Black",
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "images/product/men/aokhoacadidas.jpg",
                             Price = 690000m,
+                            PriceSale = 0m,
                             ProductDescription = "Áo thời trang mùa đông",
                             ProductName = "Áo khoác trẻ em Nike",
                             Quantity = 150,
-                            Size = "XS",
                             Status = 1,
                             SupplierId = 1,
                             UpdateBy = 1,
@@ -874,15 +867,14 @@ namespace CozaStore.Data.Migrations
                         {
                             Id = 13,
                             CategoryId = 2,
-                            Color = "Black",
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "images/product/men/aokhoacadidas.jpg",
                             Price = 850000m,
+                            PriceSale = 0m,
                             ProductDescription = "Áo thời trang mùa đông",
                             ProductName = "Quần tay công sở",
                             Quantity = 150,
-                            Size = "XS",
                             Status = 1,
                             SupplierId = 3,
                             UpdateBy = 1,
@@ -892,15 +884,14 @@ namespace CozaStore.Data.Migrations
                         {
                             Id = 14,
                             CategoryId = 1,
-                            Color = "Black",
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "images/product/men/aokhoacadidas.jpg",
                             Price = 1390000m,
+                            PriceSale = 0m,
                             ProductDescription = "Áo thời trang mùa đông",
                             ProductName = "Váy Elise",
                             Quantity = 150,
-                            Size = "XS",
                             Status = 1,
                             SupplierId = 2,
                             UpdateBy = 1,
@@ -910,15 +901,14 @@ namespace CozaStore.Data.Migrations
                         {
                             Id = 16,
                             CategoryId = 2,
-                            Color = "Black",
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "images/product/men/aokhoacadidas.jpg",
                             Price = 899000m,
+                            PriceSale = 0m,
                             ProductDescription = "Áo thời trang mùa đông",
                             ProductName = "Giày Bitis Hunter X 2021",
                             Quantity = 150,
-                            Size = "XS",
                             Status = 1,
                             SupplierId = 1,
                             UpdateBy = 1,
@@ -990,6 +980,12 @@ namespace CozaStore.Data.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Order")
+                        .HasColumnType("int");
+
                     b.Property<string>("SlideName")
                         .IsRequired()
                         .HasColumnName("SlideName")
@@ -1014,6 +1010,7 @@ namespace CozaStore.Data.Migrations
                             Id = 1,
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Order = 0,
                             SlideName = "Khuyễn mãi Noel",
                             Status = 1,
                             UpdateBy = 1,
@@ -1024,6 +1021,7 @@ namespace CozaStore.Data.Migrations
                             Id = 2,
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Order = 0,
                             SlideName = "Khuyễn mãi Ngày quốc tế Phụ nữ 8-3",
                             Status = 1,
                             UpdateBy = 1,
@@ -1034,6 +1032,7 @@ namespace CozaStore.Data.Migrations
                             Id = 3,
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Order = 0,
                             SlideName = "Khuyễn mãi Tết Tân Sửu",
                             Status = 1,
                             UpdateBy = 1,
@@ -1044,6 +1043,7 @@ namespace CozaStore.Data.Migrations
                             Id = 4,
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Order = 0,
                             SlideName = "Black Friday",
                             Status = 1,
                             UpdateBy = 1,
@@ -1054,6 +1054,7 @@ namespace CozaStore.Data.Migrations
                             Id = 5,
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Order = 0,
                             SlideName = "Ngày nhà giáo Việt Nam",
                             Status = 1,
                             UpdateBy = 1,
@@ -1148,6 +1149,12 @@ namespace CozaStore.Data.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Orders")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ParentId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
@@ -1172,6 +1179,8 @@ namespace CozaStore.Data.Migrations
                             Id = 1,
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Orders = 0,
+                            ParentId = 0,
                             Status = 1,
                             TopicName = "Thời trang",
                             UpdateBy = 1,
@@ -1182,6 +1191,8 @@ namespace CozaStore.Data.Migrations
                             Id = 2,
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Orders = 0,
+                            ParentId = 0,
                             Status = 1,
                             TopicName = "Thời trang mùa đông",
                             UpdateBy = 1,
@@ -1192,6 +1203,8 @@ namespace CozaStore.Data.Migrations
                             Id = 3,
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Orders = 0,
+                            ParentId = 0,
                             Status = 1,
                             TopicName = "Thời trang mùa hè",
                             UpdateBy = 1,
@@ -1202,6 +1215,8 @@ namespace CozaStore.Data.Migrations
                             Id = 4,
                             CreateBy = 1,
                             CreateDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Orders = 0,
+                            ParentId = 0,
                             Status = 1,
                             TopicName = "Thời trang Noel",
                             UpdateBy = 1,

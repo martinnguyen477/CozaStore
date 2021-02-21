@@ -36,8 +36,8 @@ namespace CozaStore.Services.ProductServices
         public async Task<List<ListProducts>> GetProducts()
         {
             // var product = _context.Product.ToListAsync();
-            // var productView = _mapper.Map<ListProducts>(product);.
-            // ListProducts product = _mapper.Map<ProductEntities, ListProducts>();.
+            //// var productView = _mapper.Map<ListProducts>(product);
+            // ListProducts product1 = _mapper.Map<ProductEntities, ListProducts>();
             var result = _context.Product.Select(
                p => new ListProducts()
                {
