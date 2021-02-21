@@ -20,5 +20,11 @@ namespace CozaStore.Model.EntitiesModel
         [Required]
         [Column("CategoryName")]
         public string CategoryName { get; set; }
+
+        [Column("ParentId")]
+        public int ParentId { get; set; }
+
+        [Column("Orders")]
+        public int Orders { get; set; }
     }
 }

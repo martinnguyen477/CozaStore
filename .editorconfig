@@ -29,3 +29,9 @@ dotnet_diagnostic.SA1300.severity = silent
 
 # SA1649: File name should match first type name
 dotnet_diagnostic.SA1649.severity = silent
+
+# SA1633: File should have header
+dotnet_diagnostic.SA1633.severity = silent
+
+# SA1200: Using directives should be placed correctly
+dotnet_diagnostic.SA1200.severity = silent

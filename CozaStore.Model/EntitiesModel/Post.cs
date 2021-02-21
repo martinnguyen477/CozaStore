@@ -30,13 +30,15 @@ namespace CozaStore.Model.EntitiesModel
         /// <summary>
         /// Gets or sets image.
         /// </summary>
+        [Required]
         [Column("Image")]
         public string Image { get; set; }
 
         /// <summary>
         /// Gets or sets descriptiop.
         /// </summary>
-        [Column("Description")]
-        public string Description { get; set; }
+        [Required]
+        [Column("Detail")]
+        public string Detail { get; set; }
     }
 }

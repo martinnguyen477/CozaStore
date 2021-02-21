@@ -26,15 +26,22 @@ namespace CozaStore.Model.EntitiesModel
         /// Gets or sets adress delivery.
         /// </summary>
         [Required]
-        [Column("OrderShipAddress")]
-        public string OrderShipAdsress { get; set; }
+        [Column("ShipAddress")]
+        public string ShipAdsress { get; set; }
 
         /// <summary>
         /// Gets or sets phone number delivery.
         /// </summary>
         [Required]
-        [Column("OrderShipPhone")]
-        public string OrderShipPhone { get; set; }
+        [Column("ShipPhone")]
+        public string ShipPhone { get; set; }
+
+        /// <summary>
+        /// Gets or sets phone number delivery.
+        /// </summary>
+        [Required]
+        [Column("ShipEmail")]
+        public string ShipEmail { get; set; }
 
         /// <summary>
         /// Gets or sets order date.
@@ -42,12 +49,6 @@ namespace CozaStore.Model.EntitiesModel
         [Required]
         [Column("OrderDate")]
         public DateTime OrderDate { get; set; }
-
-        /// <summary>
-        /// Gets or sets date delivery .
-        /// </summary>
-        [Column("ShipDate")]
-        public DateTime ShipDate { get; set; }
 
         /// <summary>
         /// Gets or sets note order.

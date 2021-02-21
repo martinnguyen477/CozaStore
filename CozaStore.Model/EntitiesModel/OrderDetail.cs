@@ -31,31 +31,13 @@ namespace CozaStore.Model.EntitiesModel
         /// <summary>
         /// Gets or sets price.
         /// </summary>
-        [Column("Price")]
+        [Column("Price", TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }
 
         /// <summary>
         /// Gets or sets quantity.
         /// </summary>
         [Column("Quantity")]
-        public decimal Quantity { get; set; }
-
-        /// <summary>
-        /// Gets or sets total.
-        /// </summary>
-        [Column("Total")]
-        public decimal Total { get; set; }
-
-        /// <summary>
-        /// Gets or sets discount.
-        /// </summary>
-        [Column("Discount")]
-        public int Discount { get; set; }
-
-        /// <summary>
-        /// Gets or sets billDate.
-        /// </summary>
-        [Column("BillDate")]
-        public DateTime BillDate { get; set; }
+        public int Quantity { get; set; }
     }
 }
