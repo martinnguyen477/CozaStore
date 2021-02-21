@@ -20,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CozaStore.Data\CozaStore.Data.csproj" />
     <ProjectReference Include="..\CozaStore.Services\CozaStore.Services.csproj" />
+    <ProjectReference Include="..\CozaStore\CozaStore.WebApp.csproj" />
   </ItemGroup>
 
 </Project>

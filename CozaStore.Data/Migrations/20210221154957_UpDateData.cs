@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CozaStore.Data.Migrations
 {
-    public partial class initial : Migration
+    public partial class UpDateData : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -304,21 +304,21 @@ namespace CozaStore.Data.Migrations
                 columns: new[] { "Id", "CategoryId", "CreateBy", "CreateDate", "Image", "Price", "PriceSale", "Description", "ProductDetail", "ProductName", "Quantity", "Status", "SupplierId", "UpdateBy", "UpdateDate" },
                 values: new object[,]
                 {
-                    { 10, 2, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "images/product/men/aokhoacadidas.jpg", 790000m, 0m, "Áo thời trang mùa đông", null, "Áo khoác nam", 150, 1, 3, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 16, 2, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "images/product/men/aokhoacadidas.jpg", 899000m, 0m, "Áo thời trang mùa đông", null, "Giày Bitis Hunter X 2021", 150, 1, 1, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 14, 1, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "images/product/men/aokhoacadidas.jpg", 1390000m, 0m, "Áo thời trang mùa đông", null, "Váy Elise", 150, 1, 2, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 13, 2, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "images/product/men/aokhoacadidas.jpg", 850000m, 0m, "Áo thời trang mùa đông", null, "Quần tay công sở", 150, 1, 3, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 12, 3, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "images/product/men/aokhoacadidas.jpg", 690000m, 0m, "Áo thời trang mùa đông", null, "Áo khoác trẻ em Nike", 150, 1, 1, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 11, 2, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "images/product/men/aokhoacadidas.jpg", 19000m, 0m, "Áo thời trang mùa đông", null, "Tất nữ", 150, 1, 1, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 9, 3, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "images/product/men/aokhoacadidas.jpg", 220000m, 0m, "Áo thời trang mùa đông", null, "Dép Bitis", 150, 1, 4, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 6, 3, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "images/product/men/aokhoacadidas.jpg", 190000m, 0m, "Áo thời trang mùa đông", null, "Quần thể thao trẻ em Adidas", 150, 1, 1, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 7, 2, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "images/product/men/aokhoacadidas.jpg", 940000m, 0m, "Áo thời trang mùa đông", null, "Giày thể thao - Nam ", 150, 1, 3, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 5, 1, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "images/product/men/aokhoacadidas.jpg", 390000m, 0m, "Áo thời trang mùa đông", null, "Quần thể thao nữ Adidas", 150, 1, 1, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 4, 2, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "images/product/men/aokhoacadidas.jpg", 490000m, 0m, "Áo thời trang mùa đông", null, "Quần thể thao nam Adidas", 150, 1, 2, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 3, 3, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "images/product/men/aokhoacadidas.jpg", 190000m, 0m, "Áo thời trang mùa đông", null, "Áo thể thao trẻ em Adidas", 150, 1, 1, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 2, 1, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "images/product/men/aokhoacadidas.jpg", 310000m, 0m, "Áo thời trang mùa đông", null, "Áo thể thao nữ Adidas", 150, 1, 4, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 1, 2, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "images/product/men/aokhoacadidas.jpg", 480000m, 0m, "Áo thời trang mùa đông", null, "Áo thể thao nam Adidas", 150, 1, 1, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 8, 1, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "images/product/men/aokhoacadidas.jpg", 510000m, 0m, "Áo thời trang mùa đông", null, "Guốc Juno", 150, 1, 2, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                    { 10, 2, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "~/template/images/product-10.jpg", 790000m, 0m, "Áo thời trang mùa đông", null, "Áo khoác nam", 150, 1, 3, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 16, 2, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "~/template/images/product-01.jpg", 899000m, 0m, "Áo thời trang mùa đông", null, "Giày Bitis Hunter X 2021", 150, 1, 1, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 14, 1, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "~/template/images/product-14.jpg", 1390000m, 0m, "Áo thời trang mùa đông", null, "Váy Elise", 150, 1, 2, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 13, 2, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "~/template/images/product-13.jpg", 850000m, 0m, "Áo thời trang mùa đông", null, "Quần tay công sở", 150, 1, 3, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 12, 3, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "~/template/images/product-12.jpg", 690000m, 0m, "Áo thời trang mùa đông", null, "Áo khoác trẻ em Nike", 150, 1, 1, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 11, 2, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "~/template/images/product-11.jpg", 19000m, 0m, "Áo thời trang mùa đông", null, "Tất nữ", 150, 1, 1, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 9, 3, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "~/template/images/product-09.jpg", 220000m, 0m, "Áo thời trang mùa đông", null, "Dép Bitis", 150, 1, 4, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 6, 3, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "~/template/images/product-06.jpg", 190000m, 0m, "Áo thời trang mùa đông", null, "Quần thể thao trẻ em Adidas", 150, 1, 1, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 7, 2, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "~/template/images/product-07.jpg", 940000m, 0m, "Áo thời trang mùa đông", null, "Giày thể thao - Nam ", 150, 1, 3, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 5, 1, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "~/template/images/product-06.jpg", 390000m, 0m, "Áo thời trang mùa đông", null, "Quần thể thao nữ Adidas", 150, 1, 1, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 4, 2, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "~/template/images/product-05.jpg", 490000m, 0m, "Áo thời trang mùa đông", null, "Quần thể thao nam Adidas", 150, 1, 2, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 3, 3, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "~/template/images/product-04.jpg", 190000m, 0m, "Áo thời trang mùa đông", null, "Áo thể thao trẻ em Adidas", 150, 1, 1, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 2, 1, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "~/template/images/product-02.jpg", 310000m, 0m, "Áo thời trang mùa đông", null, "Áo thể thao nữ Adidas", 150, 1, 4, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 1, 2, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "~/template/images/product-01.jpg", 480000m, 0m, "Áo thời trang mùa đông", null, "Áo thể thao nam Adidas", 150, 1, 1, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 8, 1, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "~/template/images/product-08.jpg", 510000m, 0m, "Áo thời trang mùa đông", null, "Guốc Juno", 150, 1, 2, 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
                 });
 
             migrationBuilder.InsertData(
