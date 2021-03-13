@@ -62,8 +62,8 @@ namespace CozaStore.API.Controllers
 
         #region Paging ListAll
 
-        [HttpGet("getall")]
-        public async Task<ActionResult<IEnumerable<ProductEntities>>> GetAllPaging([FromQuery] PagingParameters pagingParameters)
+        [HttpGet("GetProductPaging")]
+        public async Task<ActionResult<IEnumerable<ListProducts>>> GetAllPaging([FromQuery] PagingParameters pagingParameters)
         {
             return await _productServices.GetProductPaging(pagingParameters);
         }

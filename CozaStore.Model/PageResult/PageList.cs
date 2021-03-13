@@ -38,7 +38,7 @@ namespace CozaStore.Model.PageResult
             AddRange(items);
         }
 
-        public static PageList<T> GetPageList(IQueryable<T> source, int pageNumber, int pageSize)
+        public static PageList<T> GetPageList(List<T> source, int pageNumber, int pageSize)
         {
             var count = source.Count();
             var items = source.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();

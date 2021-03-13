@@ -45,7 +45,7 @@ namespace CozaStore.Services.ProductServices
         /// <returns> Get products.</returns>
         Task<List<ListProducts>> GetProducts();
 
-        Task<PageList<ProductEntities>> GetProductPaging(PagingParameters pagingParameters);
+        Task<PageList<ListProducts>> GetProductPaging(PagingParameters pagingParameters);
 
         /// <summary>
         /// DS product.

@@ -14,12 +14,12 @@ namespace CozaStore.Services
     /// ok.
     /// </summary>
     /// <typeparam name="T">biến T.</typeparam>
-    public class RepositoryBase<T> : IRepositoryBase<T>
+    public class ServicesBase<T> : IServicesBase<T>
         where T : class
     {
         private readonly CozaStoreContext _context;
 
-        public RepositoryBase(CozaStoreContext context)
+        public ServicesBase(CozaStoreContext context)
         {
             _context = context;
         }

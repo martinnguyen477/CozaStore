@@ -11,7 +11,7 @@ namespace CozaStore.Services
     using System.Threading.Tasks;
     using CozaStore.Model;
 
-    public interface IRepositoryBase<T>
+    public interface IServicesBase<T>
     {
         IQueryable<T> GetAll();
 

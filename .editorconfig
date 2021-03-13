@@ -41,3 +41,6 @@ dotnet_diagnostic.SA1202.severity = silent
 
 # SA1303: Const field names should begin with upper-case letter
 dotnet_diagnostic.SA1303.severity = silent
+
+# SA1127: Generic type constraints should be on their own line
+dotnet_diagnostic.SA1127.severity = silent

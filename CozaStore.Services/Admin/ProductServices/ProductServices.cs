@@ -20,7 +20,7 @@ namespace CozaStore.Services.ProductServices
     using CozaStore.Model.ResponseModel;
     using Microsoft.EntityFrameworkCore;
 
-    public class ProductServices : RepositoryBase<ProductEntities>, IProductServices
+    public class ProductServices : ServicesBase<ProductEntities>, IProductServices
     {
         #region Contructor, Variable Readonly
         private readonly CozaStoreContext _context;
@@ -94,10 +94,23 @@ namespace CozaStore.Services.ProductServices
         }
         #endregion
 
-        public Task<PageList<ProductEntities>> GetProductPaging(PagingParameters pagingParameters)
+        public Task<PageList<ListProducts>> GetProductPaging(PagingParameters pagingParameters)
         {
-            var result = PageList<ProductEntities>.GetPageList(GetAll().OrderBy(s => s.Id), pagingParameters.PageNumber, pagingParameters.PageSize);
-            //return Task.FromResult(PageList<ProductEntities>.GetPageList(GetAll().OrderBy(s => s.Id), pagingParameters.PageNumber, pagingParameters.PageSize));
+            var product = _context.Product.Select(
+               p => new ListProducts()
+               {
+                   Id = p.Id,
+                   CategoryId = p.CategoryId,
+                   ProductName = p.ProductName,
+                   Price = p.Price,
+                   Image = p.Image,
+                   ProductDescription = p.ProductDescription,
+                   Quantity = p.Quantity,
+                   SupplierId = p.SupplierId,
+                   CreateDate = p.CreateDate
+               }).OrderBy(o => o.Id).ToList();
+
+            var result = PageList<ListProducts>.GetPageList(product, pagingParameters.PageNumber, pagingParameters.PageSize);
             return Task.FromResult(result);
         }
 
