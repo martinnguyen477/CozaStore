@@ -15,17 +15,18 @@ namespace CozaStore.Services.ProductServices
     using CozaStore.Model.EntitiesModel;
     using CozaStore.Model.Exception;
     using CozaStore.Model.Model;
+    using CozaStore.Model.PageResult;
     using CozaStore.Model.RequestModel;
     using CozaStore.Model.ResponseModel;
     using Microsoft.EntityFrameworkCore;
 
-    public class ProductServices : IProductServices
+    public class ProductServices : RepositoryBase<ProductEntities>, IProductServices
     {
         #region Contructor, Variable Readonly
         private readonly CozaStoreContext _context;
         private readonly IMapper _mapper;
 
-        public ProductServices(CozaStoreContext context, IMapper mapper)
+        public ProductServices(CozaStoreContext context, IMapper mapper) : base(context)
         {
             _context = context;
             _mapper = mapper;
@@ -93,9 +94,11 @@ namespace CozaStore.Services.ProductServices
         }
         #endregion
 
-        public Task<PagedResult<ListProducts>> GetAllPaging(GetProductPagingRequest request)
+        public Task<PageList<ProductEntities>> GetProductPaging(PagingParameters pagingParameters)
         {
-            throw new NotImplementedException();
+            var result = PageList<ProductEntities>.GetPageList(GetAll().OrderBy(s => s.Id), pagingParameters.PageNumber, pagingParameters.PageSize);
+            //return Task.FromResult(PageList<ProductEntities>.GetPageList(GetAll().OrderBy(s => s.Id), pagingParameters.PageNumber, pagingParameters.PageSize));
+            return Task.FromResult(result);
         }
 
         #region Sản phẩm cùng loại.

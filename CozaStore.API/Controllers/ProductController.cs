@@ -1,4 +1,7 @@
-﻿using CozaStore.Model.Model;
+﻿using CozaStore.Model.EntitiesModel;
+using CozaStore.Model.Model;
+using CozaStore.Model.PageResult;
+using CozaStore.Model.ResponseModel;
 using CozaStore.Services.ProductServices;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -24,7 +27,7 @@ namespace CozaStore.API.Controllers
 
         #region Get Products
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> GetProduct()
         {
             return Ok(await _productServices.GetProducts());
         }
@@ -54,6 +57,15 @@ namespace CozaStore.API.Controllers
         {
             var status = await _productServices.DeleteProduct(productModel.Id);
             return Ok(status);
+        }
+        #endregion
+
+        #region Paging ListAll
+
+        [HttpGet("getall")]
+        public async Task<ActionResult<IEnumerable<ProductEntities>>> GetAllPaging([FromQuery] PagingParameters pagingParameters)
+        {
+            return await _productServices.GetProductPaging(pagingParameters);
         }
         #endregion
     }

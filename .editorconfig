@@ -35,3 +35,9 @@ dotnet_diagnostic.SA1633.severity = silent
 
 # SA1200: Using directives should be placed correctly
 dotnet_diagnostic.SA1200.severity = silent
+
+# SA1202: Elements should be ordered by access
+dotnet_diagnostic.SA1202.severity = silent
+
+# SA1303: Const field names should begin with upper-case letter
+dotnet_diagnostic.SA1303.severity = silent
