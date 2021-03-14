@@ -7,22 +7,20 @@ namespace CozaStore.Services.ProductServices
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
     using AutoMapper;
     using CozaStore.Data.EntityContext;
-    using CozaStore.Model.Common;
     using CozaStore.Model.EntitiesModel;
     using CozaStore.Model.Exception;
     using CozaStore.Model.Model;
     using CozaStore.Model.PageResult;
-    using CozaStore.Model.RequestModel;
     using CozaStore.Model.ResponseModel;
     using Microsoft.EntityFrameworkCore;
 
     public class ProductServices : ServicesBase<ProductEntities>, IProductServices
     {
         #region Contructor, Variable Readonly
+
         private readonly CozaStoreContext _context;
         private readonly IMapper _mapper;
 
@@ -31,9 +29,11 @@ namespace CozaStore.Services.ProductServices
             _context = context;
             _mapper = mapper;
         }
-        #endregion
+
+        #endregion Contructor, Variable Readonly
 
         #region Get Product
+
         public async Task<List<ListProducts>> GetProducts()
         {
             // var product = _context.Product.ToListAsync();
@@ -54,9 +54,11 @@ namespace CozaStore.Services.ProductServices
                }).ToListAsync();
             return await result;
         }
-        #endregion
+
+        #endregion Get Product
 
         #region Delete Product
+
         public async Task<int> DeleteProduct(int productId)
         {
             // ProductEntities product = _mapper.Map<ProductModel, ProductEntities>(productModel);
@@ -74,25 +76,32 @@ namespace CozaStore.Services.ProductServices
 
             return await _context.SaveChangesAsync();
         }
-        #endregion
+
+        #endregion Delete Product
 
         #region Insert Product
+
         public async Task<int> InsertProduct(ProductModel productModel)
         {
             ProductEntities product = _mapper.Map<ProductModel, ProductEntities>(productModel);
             _context.Product.Add(product);
             return await _context.SaveChangesAsync();
         }
-        #endregion
+
+        #endregion Insert Product
 
         #region Update Product
+
         public async Task<int> UpdateProduct(ProductModel productModel)
         {
             ProductEntities product = _mapper.Map<ProductModel, ProductEntities>(productModel);
             _context.Product.Update(product);
             return await _context.SaveChangesAsync();
         }
-        #endregion
+
+        #endregion Update Product
+
+        #region GetProductPaging
 
         public Task<PageList<ListProducts>> GetProductPaging(PagingParameters pagingParameters)
         {
@@ -113,6 +122,72 @@ namespace CozaStore.Services.ProductServices
             var result = PageList<ListProducts>.GetPageList(product, pagingParameters.PageNumber, pagingParameters.PageSize);
             return Task.FromResult(result);
         }
+
+        #endregion GetProductPaging
+
+        #region Search
+        public Task<PageList<ListProducts>> SearchProduct(string key, PagingParameters pagingParameters)
+        {
+            var products = _context.Product.Select(
+                p => new ListProducts()
+                {
+                    Id = p.Id,
+                    CategoryId = p.CategoryId,
+                    ProductName = p.ProductName,
+                    Price = p.Price,
+                    Image = p.Image,
+                    ProductDescription = p.ProductDescription,
+                    Quantity = p.Quantity,
+                    SupplierId = p.SupplierId,
+                    CreateDate = p.CreateDate
+                }).Where(p => p.ProductName.ToLower().Contains(key.ToLower()));
+            var product2 = products.OrderBy(s => s.Id).ToList();
+
+            var result = PageList<ListProducts>.GetPageList(product2, pagingParameters.PageNumber, pagingParameters.PageSize);
+            return Task.FromResult(result);
+        }
+        #endregion
+
+        #region Product Category
+        public Task<PageList<ListProducts>> ProductCategory(int idCategory, PagingParameters pagingParameters)
+        {
+            var product = _context.Product.Select(
+                p => new ListProducts
+                {
+                    Id = p.Id,
+                    CategoryId = p.CategoryId,
+                    ProductName = p.ProductName,
+                    Price = p.Price,
+                    Image = p.Image,
+                    ProductDescription = p.ProductDescription,
+                    Quantity = p.Quantity,
+                    SupplierId = p.SupplierId,
+                    CreateDate = p.CreateDate
+                }).Where(p => p.CategoryId == idCategory).ToList();
+            var result = PageList<ListProducts>.GetPageList(product, pagingParameters.PageNumber, pagingParameters.PageSize);
+            return Task.FromResult(result);
+        }
+
+        public Task<PageList<ListProducts>> NewProduct(PagingParameters pagingParameters)
+        {
+            var product = _context.Product.Select(
+                p => new ListProducts
+                {
+                    Id = p.Id,
+                    CategoryId = p.CategoryId,
+                    ProductName = p.ProductName,
+                    Price = p.Price,
+                    Image = p.Image,
+                    ProductDescription = p.ProductDescription,
+                    Quantity = p.Quantity,
+                    SupplierId = p.SupplierId,
+                    CreateDate = p.CreateDate
+                }).Where(p => p.CreateDate.Day - DateTime.Now.Day < 7).ToList();
+
+            var result = PageList<ListProducts>.GetPageList(product, pagingParameters.PageNumber, pagingParameters.PageSize);
+            return Task.FromResult(result);
+        }
+        #endregion
 
         #region Sản phẩm cùng loại.
 
@@ -150,7 +225,7 @@ namespace CozaStore.Services.ProductServices
         //                           SupplierId = p.SupplierId
         //                       };
         //    return await listProduct1;
-        // }
-        #endregion
+        // }.
+        #endregion Sản phẩm cùng loại.
     }
 }
