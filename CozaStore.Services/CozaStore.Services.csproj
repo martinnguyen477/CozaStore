@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <Folder Include="Admin\CategoryServices\" />
-    <Folder Include="BaseServices\" />
     <Folder Include="Client\" />
   </ItemGroup>
 

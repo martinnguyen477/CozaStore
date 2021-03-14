@@ -10,7 +10,9 @@ namespace CozaStore.Services.ProductServices
     using System.Text;
     using System.Threading.Tasks;
     using CozaStore.Model.Common;
+    using CozaStore.Model.EntitiesModel;
     using CozaStore.Model.Model;
+    using CozaStore.Model.PageResult;
     using CozaStore.Model.RequestModel;
     using CozaStore.Model.ResponseModel;
 
@@ -43,7 +45,7 @@ namespace CozaStore.Services.ProductServices
         /// <returns> Get products.</returns>
         Task<List<ListProducts>> GetProducts();
 
-        Task<PagedResult<ListProducts>> GetAllPaging(GetProductPagingRequest request);
+        Task<PageList<ListProducts>> GetProductPaging(PagingParameters pagingParameters);
 
         /// <summary>
         /// DS product.
