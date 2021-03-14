@@ -1,19 +1,14 @@
 using AutoMapper;
 using CozaStore.Data.EntityContext;
-using CozaStore.Services.PostServices;
-using CozaStore.Services.ProductServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.OpenApi.Models;
+using CozaStore.API.StartUp;
 
 namespace CozaStore.API
 {
@@ -36,9 +31,12 @@ namespace CozaStore.API
             {
                 option.UseSqlServer(Configuration.GetConnectionString("CozaStore"));
             });
-            services.AddTransient<IProductServices, ProductServices>();
-            services.AddTransient<IPostServices, PostServices>();
 
+            #region DI
+            services.AddSingleton<IConfiguration>(Configuration);
+            services.AddApplicationServicesExtensions();
+            #endregion
+            #region Swagger
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
@@ -54,6 +52,7 @@ namespace CozaStore.API
                     },
                 });
             });
+            #endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -14,13 +14,17 @@ namespace CozaStore.API.Controllers
     [ApiController]
     public class PostController : ControllerBase
     {
+
+        #region Contructor, Variable
         private readonly IPostServices _postServices;
 
         public PostController(IPostServices postServices)
         {
             _postServices = postServices;
         }
+        #endregion
 
+        #region Add
         [HttpPost]
         // GET: api/<PageController>
         public IActionResult Add([FromBody] PostModel postModel)
@@ -28,7 +32,9 @@ namespace CozaStore.API.Controllers
             _postServices.Add(postModel);
             return new OkObjectResult(postModel);
         }
+        #endregion
 
+        #region Update
         [HttpPut]
         public IActionResult Update([FromBody] PostModel postModel)
         {
@@ -36,7 +42,9 @@ namespace CozaStore.API.Controllers
             _postServices.SaveChanges();
             return new OkObjectResult(postModel);
         }
+        #endregion
 
+        #region Delete
         [HttpDelete]
         public IActionResult Delete(int id)
         {
@@ -44,6 +52,9 @@ namespace CozaStore.API.Controllers
             _postServices.SaveChanges();
             return new OkObjectResult(id);
         }
+        #endregion
+
+        #region GetAll
         [HttpGet]
         public IActionResult Index()
         {
@@ -52,5 +63,6 @@ namespace CozaStore.API.Controllers
             return new OkObjectResult(model);
 
         }
-    } 
+        #endregion
+    }
 }
