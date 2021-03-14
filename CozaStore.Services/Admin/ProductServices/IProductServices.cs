@@ -47,11 +47,10 @@ namespace CozaStore.Services.ProductServices
 
         Task<PageList<ListProducts>> GetProductPaging(PagingParameters pagingParameters);
 
-        /// <summary>
-        /// DS product.
-        /// </summary>
-        /// <param name="categoryModel">category.</param>
-        /// <returns>DS.</returns>
-        // Task<List<ListProducts>> ProductsOfSomeType(CategoryModel categoryModel);
+        Task<PageList<ListProducts>> SearchProduct(string key, PagingParameters pagingParameters);
+
+        Task<PageList<ListProducts>> ProductCategory(int idCategory, PagingParameters pagingParameters);
+
+        Task<PageList<ListProducts>> NewProduct( PagingParameters pagingParameters);
     }
 }

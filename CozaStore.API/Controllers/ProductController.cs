@@ -68,5 +68,31 @@ namespace CozaStore.API.Controllers
             return await _productServices.GetProductPaging(pagingParameters);
         }
         #endregion
+
+        #region Search
+
+        [HttpGet("Search")]
+        public async Task<ActionResult<IEnumerable<ListProducts>>> SearchProduct([FromQuery] PagingParameters pagingParameters, string keyWord)
+        {
+            return await _productServices.SearchProduct(keyWord,pagingParameters);
+        }
+        #endregion
+
+        #region Product Category
+        [HttpGet("ProductCategory")]
+        public async Task<ActionResult<IEnumerable<ListProducts>>> ProductCategory( [FromQuery] PagingParameters pagingParameters, int idCategory)
+        {
+            return await _productServices.ProductCategory(idCategory, pagingParameters);
+        }
+        #endregion
+
+        #region New Product 
+        [HttpGet("NewProduct")]
+        public async Task<ActionResult<IEnumerable<ListProducts>>> NewProduct([FromQuery] PagingParameters pagingParameters)
+        {
+            return await _productServices.NewProduct(pagingParameters);
+        }
+        #endregion
+
     }
 }
