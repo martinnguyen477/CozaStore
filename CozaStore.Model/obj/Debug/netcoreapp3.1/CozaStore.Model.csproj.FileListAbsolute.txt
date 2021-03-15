@@ -24,4 +24,3 @@ C:\Users\Nguyen Quoc Cuong\source\repos\CozaStore\CozaStore.Model\obj\Debug\netc
 C:\Users\Nguyen Quoc Cuong\source\repos\CozaStore\CozaStore.Model\obj\Debug\netcoreapp3.1\CozaStore.Model.csproj.CoreCompileInputs.cache
 C:\Users\Nguyen Quoc Cuong\source\repos\CozaStore\CozaStore.Model\obj\Debug\netcoreapp3.1\CozaStore.Model.dll
 C:\Users\Nguyen Quoc Cuong\source\repos\CozaStore\CozaStore.Model\obj\Debug\netcoreapp3.1\CozaStore.Model.pdb
-C:\Users\Nguyen Quoc Cuong\source\repos\CozaStore\CozaStore.Model\obj\Debug\netcoreapp3.1\CozaStore.Model.csprojAssemblyReference.cache

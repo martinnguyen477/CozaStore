@@ -6,6 +6,5 @@ namespace CozaStore.Services.Client.Contact
 {
     public interface IContactServices
     {
-
     }
 }

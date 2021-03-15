@@ -41,11 +41,11 @@ namespace CozaStore.Data.SeedDataDefault
                 new OrderDetailEntities { Id = 6, OrderId = 5, ProductId = 4, Price = 45000000, Quantity = 2,  Status = 1, CreateBy = 1, CreateDate = dateTime, UpdateBy = 1, UpdateDate = dateTime },
                 new OrderDetailEntities { Id = 7, OrderId = 6, ProductId = 12, Price = 45000000, Quantity = 2,  Status = 1, CreateBy = 1, CreateDate = dateTime, UpdateBy = 1, UpdateDate = dateTime });
             modelbuilder.Entity<PostEntities>().HasData(
-                new PostEntities { Id = 1, PostTitle = "Khuyến mãi Tết Tân Sửu", Detail = "Mừng xuân, mừng đảng", TopicId = 1, Image = "images/post/hinh.jpg", Status = 1, CreateBy = 1, CreateDate = dateTime, UpdateBy = 1, UpdateDate = dateTime },
-                new PostEntities { Id = 2, PostTitle = "Lễ Giang Sinh", Detail = "Mừng giáng sinh", TopicId = 1, Image = "images/post/hinh.jpg", Status = 1, CreateBy = 1, CreateDate = dateTime, UpdateBy = 1, UpdateDate = dateTime },
-                new PostEntities { Id = 3, PostTitle = "Giảm giá 50%", Detail = "Mừng khai trương", TopicId = 1, Image = "images/post/hinh.jpg", Status = 1, CreateBy = 1, CreateDate = dateTime, UpdateBy = 1, UpdateDate = dateTime },
-                new PostEntities { Id = 4, PostTitle = "Black Friday", Detail = "Siêu giảm giá !", TopicId = 1, Image = "images/post/hinh.jpg", Status = 1, CreateBy = 1, CreateDate = dateTime, UpdateBy = 1, UpdateDate = dateTime },
-                new PostEntities { Id = 5, PostTitle = "Khuyễn mãi nhân ngày 8-3", Detail = "Ngày quốc tế phụ nữ", TopicId = 1, Image = "images/post/hinh.jpg", Status = 1, CreateBy = 1, CreateDate = dateTime, UpdateBy = 1, UpdateDate = dateTime });
+                new PostEntities { Id = 1, PostTitle = "Khuyến mãi Tết Tân Sửu", Description = "Mừng xuân, mừng đảng", TopicId = 1, Image = "images/post/hinh.jpg", Status = 1, CreateBy = 1, CreateDate = dateTime, UpdateBy = 1, UpdateDate = dateTime },
+                new PostEntities { Id = 2, PostTitle = "Lễ Giang Sinh", Description = "Mừng giáng sinh", TopicId = 1, Image = "images/post/hinh.jpg", Status = 1, CreateBy = 1, CreateDate = dateTime, UpdateBy = 1, UpdateDate = dateTime },
+                new PostEntities { Id = 3, PostTitle = "Giảm giá 50%", Description = "Mừng khai trương", TopicId = 1, Image = "images/post/hinh.jpg", Status = 1, CreateBy = 1, CreateDate = dateTime, UpdateBy = 1, UpdateDate = dateTime },
+                new PostEntities { Id = 4, PostTitle = "Black Friday", Description = "Siêu giảm giá !", TopicId = 1, Image = "images/post/hinh.jpg", Status = 1, CreateBy = 1, CreateDate = dateTime, UpdateBy = 1, UpdateDate = dateTime },
+                new PostEntities { Id = 5, PostTitle = "Khuyễn mãi nhân ngày 8-3", Description = "Ngày quốc tế phụ nữ", TopicId = 1, Image = "images/post/hinh.jpg", Status = 1, CreateBy = 1, CreateDate = dateTime, UpdateBy = 1, UpdateDate = dateTime });
             modelbuilder.Entity<ProductEntities>().HasData(
                 new ProductEntities { Id = 1, ProductName = "Áo thể thao nam Adidas", CategoryId = 2, Price = 480000, Quantity = 150,  ProductDescription = "Áo thời trang mùa đông", SupplierId = 1, Image = "/template/images/product-01.jpg", TagId = 1,  Status = 1, CreateBy = 1, CreateDate = dateTime, UpdateBy = 1, UpdateDate = dateTime },
                 new ProductEntities { Id = 2, ProductName = "Áo thể thao nữ Adidas", CategoryId = 1, Price = 310000, Quantity = 150,  ProductDescription = "Áo thời trang mùa đông", SupplierId = 4, Image = "/template/images/product-02.jpg", TagId = 1, Status = 1, CreateBy = 1, CreateDate = dateTime, UpdateBy = 1, UpdateDate = dateTime },
@@ -164,8 +164,7 @@ namespace CozaStore.Data.SeedDataDefault
                 new TagEntities { Id = 1, Tag = "Trang phục Noel" },
                 new TagEntities { Id = 2, Tag = "Trang phục Mùa Xuân" },
                 new TagEntities { Id = 3, Tag = "Thời trang Thu Đông" },
-                new TagEntities { Id = 4, Tag = "Thời trang Nam" }
-                );
+                new TagEntities { Id = 4, Tag = "Thời trang Nam" });
         }
     }
 }

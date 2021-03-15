@@ -24,7 +24,8 @@ namespace CozaStore.Services.ProductServices
         private readonly CozaStoreContext _context;
         private readonly IMapper _mapper;
 
-        public ProductServices(CozaStoreContext context, IMapper mapper) : base(context)
+        public ProductServices(CozaStoreContext context, IMapper mapper)
+            : base(context)
         {
             _context = context;
             _mapper = mapper;

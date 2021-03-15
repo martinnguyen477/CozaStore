@@ -1,20 +1,21 @@
-﻿using CozaStore.Model.Model;
-using CozaStore.Services.PostServices;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+﻿// <copyright file="PostController.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace CozaStore.API.Controllers
 {
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using CozaStore.Model.Model;
+    using CozaStore.Model.PageResult;
+    using CozaStore.Model.ResponseModel;
+    using CozaStore.Services.PostServices;
+    using Microsoft.AspNetCore.Mvc;
+
     [Route("api/[controller]")]
     [ApiController]
     public class PostController : ControllerBase
     {
-
         #region Contructor, Variable
         private readonly IPostServices _postServices;
 
@@ -24,9 +25,16 @@ namespace CozaStore.API.Controllers
         }
         #endregion
 
+        #region GetAll
+        [HttpGet]
+        public async Task<IActionResult> Index()
+        {
+            return Ok(await _postServices.GetPosts());
+        }
+        #endregion
+
         #region Add
         [HttpPost]
-        // GET: api/<PageController>
         public IActionResult Add([FromBody] PostModel postModel)
         {
             _postServices.Add(postModel);
@@ -39,7 +47,6 @@ namespace CozaStore.API.Controllers
         public IActionResult Update([FromBody] PostModel postModel)
         {
             _postServices.Update(postModel);
-            _postServices.SaveChanges();
             return new OkObjectResult(postModel);
         }
         #endregion
@@ -49,19 +56,47 @@ namespace CozaStore.API.Controllers
         public IActionResult Delete(int id)
         {
             _postServices.Delete(id);
-            _postServices.SaveChanges();
             return new OkObjectResult(id);
         }
         #endregion
 
-        #region GetAll
-        [HttpGet]
-        public IActionResult Index()
+        #region GetPostsPaging
+        [HttpGet("GetPostsPaging")]
+        public async Task<ActionResult<IEnumerable<ListPosts>>> GetPostsPaging([FromQuery] PagingParameters pagingParameters)
         {
-            var model = _postServices.GetAll();
+            return await _postServices.GetPostsPaging(pagingParameters);
+        }
+        #endregion
 
-            return new OkObjectResult(model);
+        #region GetPostsByTopic
+        [HttpGet("GetPostsByTopic")]
+        public async Task<ActionResult<IEnumerable<ListPosts>>> GetPostsByTopic([FromQuery] PagingParameters pagingParameters, int topicId)
+        {
+            return await _postServices.GetsPostsByTopic(pagingParameters, topicId);
+        }
+        #endregion
 
+        #region PostById
+        [HttpGet("id")]
+        public ListPosts PostById(int idPost)
+        {
+            return _postServices.GetById(idPost);
+        }
+        #endregion
+
+        #region SearchProduct
+        [HttpGet("SearchProducts")]
+        public async Task<ActionResult<IEnumerable<ListPosts>>> SearchProducts([FromQuery] PagingParameters pagingParameters, string keyWordSearch)
+        {
+            return await _postServices.SearchPosts(keyWordSearch, pagingParameters);
+        }
+        #endregion
+
+        #region LastestProducts
+        [HttpGet("LastestProducts")]
+        public async Task<ActionResult<IEnumerable<ListPosts>>> LastestProducts([FromQuery] PagingParameters pagingParameters)
+        {
+            return await _postServices.GetLatestPosts(pagingParameters);
         }
         #endregion
     }
