@@ -45,12 +45,14 @@ namespace CozaStore.Services.ProductServices
         /// <returns> Get products.</returns>
         Task<List<ListProducts>> GetProducts();
 
-        Task<PageList<ListProducts>> GetProductPaging(PagingParameters pagingParameters);
+        Task<PageList<ListProducts>> GetProductsPaging(PagingParameters pagingParameters);
 
-        Task<PageList<ListProducts>> SearchProduct(string key, PagingParameters pagingParameters);
+        Task<PageList<ListProducts>> SearchProducts(string key, PagingParameters pagingParameters);
 
-        Task<PageList<ListProducts>> ProductCategory(int idCategory, PagingParameters pagingParameters);
+        Task<PageList<ListProducts>> ProductsCategory(int idCategory, PagingParameters pagingParameters);
 
-        Task<PageList<ListProducts>> NewProduct( PagingParameters pagingParameters);
+        Task<PageList<ListProducts>> NewProducts(PagingParameters pagingParameters);
+
+        Task<PageList<ListProductsByTag>> ProductsByTag(int idTag, PagingParameters pagingParameters);
     }
 }

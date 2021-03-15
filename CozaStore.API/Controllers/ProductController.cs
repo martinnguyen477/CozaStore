@@ -65,7 +65,7 @@ namespace CozaStore.API.Controllers
         [HttpGet("GetProductPaging")]
         public async Task<ActionResult<IEnumerable<ListProducts>>> GetAllPaging([FromQuery] PagingParameters pagingParameters)
         {
-            return await _productServices.GetProductPaging(pagingParameters);
+            return await _productServices.GetProductsPaging(pagingParameters);
         }
         #endregion
 
@@ -74,7 +74,7 @@ namespace CozaStore.API.Controllers
         [HttpGet("Search")]
         public async Task<ActionResult<IEnumerable<ListProducts>>> SearchProduct([FromQuery] PagingParameters pagingParameters, string keyWord)
         {
-            return await _productServices.SearchProduct(keyWord,pagingParameters);
+            return await _productServices.SearchProducts(keyWord,pagingParameters);
         }
         #endregion
 
@@ -82,7 +82,7 @@ namespace CozaStore.API.Controllers
         [HttpGet("ProductCategory")]
         public async Task<ActionResult<IEnumerable<ListProducts>>> ProductCategory( [FromQuery] PagingParameters pagingParameters, int idCategory)
         {
-            return await _productServices.ProductCategory(idCategory, pagingParameters);
+            return await _productServices.ProductsCategory(idCategory, pagingParameters);
         }
         #endregion
 
@@ -90,9 +90,16 @@ namespace CozaStore.API.Controllers
         [HttpGet("NewProduct")]
         public async Task<ActionResult<IEnumerable<ListProducts>>> NewProduct([FromQuery] PagingParameters pagingParameters)
         {
-            return await _productServices.NewProduct(pagingParameters);
+            return await _productServices.NewProducts(pagingParameters);
         }
         #endregion
 
+        #region Products By Tag
+        [HttpGet("ProductsByTag")]
+        public async Task<ActionResult<IEnumerable<ListProductsByTag>>> ProductsByTag([FromQuery] PagingParameters pagingParameters, int TagId)
+        {
+            return await _productServices.ProductsByTag(TagId, pagingParameters);
+        }
+        #endregion
     }
 }

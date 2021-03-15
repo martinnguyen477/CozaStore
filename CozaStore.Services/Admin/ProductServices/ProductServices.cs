@@ -103,7 +103,7 @@ namespace CozaStore.Services.ProductServices
 
         #region GetProductPaging
 
-        public Task<PageList<ListProducts>> GetProductPaging(PagingParameters pagingParameters)
+        public Task<PageList<ListProducts>> GetProductsPaging(PagingParameters pagingParameters)
         {
             var product = _context.Product.Select(
                p => new ListProducts()
@@ -126,7 +126,7 @@ namespace CozaStore.Services.ProductServices
         #endregion GetProductPaging
 
         #region Search
-        public Task<PageList<ListProducts>> SearchProduct(string key, PagingParameters pagingParameters)
+        public Task<PageList<ListProducts>> SearchProducts(string key, PagingParameters pagingParameters)
         {
             var products = _context.Product.Select(
                 p => new ListProducts()
@@ -149,7 +149,7 @@ namespace CozaStore.Services.ProductServices
         #endregion
 
         #region Product Category
-        public Task<PageList<ListProducts>> ProductCategory(int idCategory, PagingParameters pagingParameters)
+        public Task<PageList<ListProducts>> ProductsCategory(int idCategory, PagingParameters pagingParameters)
         {
             var product = _context.Product.Select(
                 p => new ListProducts
@@ -168,7 +168,7 @@ namespace CozaStore.Services.ProductServices
             return Task.FromResult(result);
         }
 
-        public Task<PageList<ListProducts>> NewProduct(PagingParameters pagingParameters)
+        public Task<PageList<ListProducts>> NewProducts(PagingParameters pagingParameters)
         {
             var product = _context.Product.Select(
                 p => new ListProducts
@@ -185,6 +185,30 @@ namespace CozaStore.Services.ProductServices
                 }).Where(p => p.CreateDate.Day - DateTime.Now.Day < 7).ToList();
 
             var result = PageList<ListProducts>.GetPageList(product, pagingParameters.PageNumber, pagingParameters.PageSize);
+            return Task.FromResult(result);
+        }
+
+        public Task<PageList<ListProductsByTag>> ProductsByTag(int idTag, PagingParameters pagingParameters)
+        {
+            var product = from p in _context.Product
+                          join t in _context.Tags on p.TagId equals t.Id
+                          where t.Id == idTag
+                          select new ListProductsByTag
+                          {
+                              Id = p.Id,
+                              CategoryId = p.CategoryId,
+                              ProductName = p.ProductName,
+                              Price = p.Price,
+                              Image = p.Image,
+                              ProductDescription = p.ProductDescription,
+                              Quantity = p.Quantity,
+                              SupplierId = p.SupplierId,
+                              CreateDate = p.CreateDate,
+                              TagId = t.Id,
+                              TagName = t.Tag
+                          };
+            var p1 = product.ToList();
+            var result = PageList<ListProductsByTag>.GetPageList(p1, pagingParameters.PageNumber, pagingParameters.PageSize);
             return Task.FromResult(result);
         }
         #endregion

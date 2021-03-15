@@ -53,6 +53,8 @@ namespace CozaStore.Data.EntityContext
 
         public DbSet<SupplierEntities> Supplier { get; set; }
 
+        public DbSet<TagEntities> Tags { get; set; }
+
         #endregion
 
         /// <summary>
@@ -71,6 +73,7 @@ namespace CozaStore.Data.EntityContext
             modelbuilder.Entity<SlideEntities>().ToTable("Slide").HasKey(s => s.Id);
             modelbuilder.Entity<TopicEntities>().ToTable("Topic").HasKey(t => t.Id);
             modelbuilder.Entity<SupplierEntities>().ToTable("Supplier").HasKey(s => s.Id);
+            modelbuilder.Entity<TagEntities>().ToTable("Tag").HasKey(s => s.Id);
             modelbuilder.Entity<RoleEntities>().ToTable("Role").HasKey(r => r.Id);
             modelbuilder.SeedDataDefault();
         }
