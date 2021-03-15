@@ -73,5 +73,8 @@ namespace CozaStore.Model.EntitiesModel
         [Required]
         [Column("Quantity")]
         public int Quantity { get; set; }
+
+        [Column("TagId")]
+        public int TagId { get; set; }
     }
 }
