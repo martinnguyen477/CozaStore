@@ -58,8 +58,8 @@ namespace CozaStore.Services.PostServices
         }
         #endregion
 
-        #region GetPosts
-        public async Task<List<ListPosts>> GetPosts()
+        #region GetPostsAll
+        public async Task<List<ListPosts>> GetPostsAll()
         {
             var post = _context.Post.Select(post
                => new ListPosts
@@ -169,10 +169,5 @@ namespace CozaStore.Services.PostServices
             return Task.FromResult(result);
         }
         #endregion
-
-        public List<PostModel> GetByAlias(string alias)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

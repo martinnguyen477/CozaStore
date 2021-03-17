@@ -212,45 +212,24 @@ namespace CozaStore.Services.ProductServices
             var result = PageList<ListProductsByTag>.GetPageList(p1, pagingParameters.PageNumber, pagingParameters.PageSize);
             return Task.FromResult(result);
         }
+
+        public ListProducts GetProductById(int idProduct)
+        {
+            var product = _context.Product.Select(
+                p => new ListProducts
+                {
+                    Id = p.Id,
+                    CategoryId = p.CategoryId,
+                    ProductName = p.ProductName,
+                    Price = p.Price,
+                    Image = p.Image,
+                    ProductDescription = p.ProductDescription,
+                    Quantity = p.Quantity,
+                    SupplierId = p.SupplierId,
+                    CreateDate = p.CreateDate
+                }).Where(p => p.Id == idProduct).SingleOrDefault();
+            return product;
+        }
         #endregion
-
-        #region Sản phẩm cùng loại.
-
-        // public async Task<List<ListProducts>> ProductsOfSomeType(CategoryModel categoryModel)
-        // {
-        //    // var listProduct = _context.Product.Select(p
-        //    //    => new ListProducts
-        //    //    {
-        //    //        Id = p.Id,
-        //    //        CategoryId = p.CategoryId,
-        //    //        ProductName = p.ProductName,
-        //    //        Price = p.Price,
-        //    //        Image = p.Image,
-        //    //        Color = p.Color,
-        //    //        Size = p.Size,
-        //    //        ProductDescription = p.ProductDescription,
-        //    //        Quantity = p.Quantity,
-        //    //        SupplierId = p.SupplierId
-        //    //    }).ToListAsync();
-        //    var listProduct1 = from p in _context.Set<ProductEntities>()
-        //                       from c in _context.Set<CategoryEntities>().Where(o => o.Id == p.CategoryId)
-        //                       .Where(o => o.Id == categoryModel.Id)
-        //                       select new ListProducts
-        //                       {
-        //                           Id = p.Id,
-        //                           CategoryId = p.CategoryId,
-        //                           ProductName = p.ProductName,
-        //                           CategoryName = c.CategoryName,
-        //                           Price = p.Price,
-        //                           Image = p.Image,
-        //                           Color = p.Color,
-        //                           Size = p.Size,
-        //                           ProductDescription = p.ProductDescription,
-        //                           Quantity = p.Quantity,
-        //                           SupplierId = p.SupplierId
-        //                       };
-        //    return await listProduct1;
-        // }.
-        #endregion Sản phẩm cùng loại.
     }
 }

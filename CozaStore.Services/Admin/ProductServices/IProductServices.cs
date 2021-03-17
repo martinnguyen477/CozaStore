@@ -54,5 +54,7 @@ namespace CozaStore.Services.ProductServices
         Task<PageList<ListProducts>> NewProducts(PagingParameters pagingParameters);
 
         Task<PageList<ListProductsByTag>> ProductsByTag(int idTag, PagingParameters pagingParameters);
+
+        ListProducts GetProductById(int idProduct);
     }
 }
