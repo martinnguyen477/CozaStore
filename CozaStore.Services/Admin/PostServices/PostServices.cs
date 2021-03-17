@@ -8,74 +8,166 @@ namespace CozaStore.Services.PostServices
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using System.Threading.Tasks;
     using AutoMapper;
     using CozaStore.Data.EntityContext;
     using CozaStore.Model.EntitiesModel;
     using CozaStore.Model.Model;
+    using CozaStore.Model.PageResult;
+    using CozaStore.Model.ResponseModel;
     using CozaStore.Services.PostServices;
+    using Microsoft.EntityFrameworkCore;
 
-    public class PostServices : IPostServices
+    public class PostServices : ServicesBase<PostEntities>, IPostServices
     {
+        #region Contructor, Variable
         private readonly CozaStoreContext _context;
         private readonly IMapper _mapper;
 
         public PostServices(CozaStoreContext context, IMapper mapper)
+            : base(context)
         {
             _context = context;
             _mapper = mapper;
         }
+        #endregion
 
+        #region Add
         public void Add(PostModel postModel)
         {
             var post = _mapper.Map<PostModel, PostEntities>(postModel);
             _context.Add(post);
             _context.SaveChanges();
         }
+        #endregion
 
+        #region Update
         public void Update(PostModel postModel)
         {
             var post = _mapper.Map<PostModel, PostEntities>(postModel);
             _context.Update(post);
             _context.SaveChanges();
         }
+        #endregion
 
+        #region Delete
         public void Delete(int id)
         {
             _context.Remove(id);
+            _context.SaveChanges();
         }
+        #endregion
 
-        public List<PostModel> GetAll()
+        #region GetPostsAll
+        public async Task<List<ListPosts>> GetPostsAll()
         {
             var post = _context.Post.Select(post
-               => new PostModel
+               => new ListPosts
                {
                    Id = post.Id,
                    PostTitle = post.PostTitle,
                    TopicId = post.TopicId,
                    Image = post.Image,
                    Status = post.Status
-               }).ToList();
+               }).ToListAsync();
+            return await post;
+        }
+        #endregion
+
+        #region GetById
+        public ListPosts GetById(int idPost)
+        {
+            var post = _context.Post.Select(
+                p => new ListPosts
+                {
+                    Id = p.Id,
+                    PostTitle = p.PostTitle,
+                    TopicId = p.TopicId,
+                    Image = p.Image,
+                    Status = p.Status
+                }).Where(p => p.Id == idPost).SingleOrDefault();
             return post;
         }
+        #endregion
 
-        public List<PostModel> GetAllPaging(string keyword, int page, int pageSize)
+        #region GetPostsPaging
+        public Task<PageList<ListPosts>> GetPostsPaging(PagingParameters pagingParameters)
         {
-            throw new NotImplementedException();
+            var post = _context.Post.Select(
+                p => new ListPosts
+                {
+                    Id = p.Id,
+                    PostTitle = p.PostTitle,
+                    TopicId = p.TopicId,
+                    Image = p.Image,
+                    Status = p.Status
+                }).ToList();
+            var result = PageList<ListPosts>.GetPageList(post, pagingParameters.PageNumber, pagingParameters.PageSize);
+            return Task.FromResult(result);
         }
+        #endregion GetPostsPaging
 
-        public List<PostModel> GetByAlias(string alias)
+        #region GetsPostsByTopic
+        public Task<PageList<ListPosts>> GetsPostsByTopic(PagingParameters pagingParameters, int topicId)
         {
-            throw new NotImplementedException();
+            var posts = from p in _context.Post
+                       join t in _context.Topic on p.TopicId equals t.Id
+                       where t.Id == topicId
+                       select new ListPosts
+                       {
+                           Id = p.Id,
+                           PostTitle = p.PostTitle,
+                           TopicId = p.TopicId,
+                           Image = p.Image,
+                           Status = p.Status,
+                           TopicName = t.TopicName
+                       };
+            var listPosts = posts.ToList();
+            var result = PageList<ListPosts>.GetPageList(listPosts, pagingParameters.PageNumber, pagingParameters.PageSize);
+            return Task.FromResult(result);
         }
+        #endregion
 
-        public PostModel GetById(int id)
+        #region GetLatestPosts
+        public Task<PageList<ListPosts>> GetLatestPosts(PagingParameters pagingParameters)
         {
-            throw new NotImplementedException();
+            var posts = from p in _context.Post
+                        join t in _context.Topic on p.TopicId equals t.Id
+                        where p.CreateDate.Day - DateTime.Now.Day < 7
+                        select new ListPosts
+                        {
+                            Id = p.Id,
+                            PostTitle = p.PostTitle,
+                            TopicId = p.TopicId,
+                            Image = p.Image,
+                            Status = p.Status,
+                            TopicName = t.TopicName
+                        };
+            var listPosts = posts.ToList();
+            var result = PageList<ListPosts>.GetPageList(listPosts, pagingParameters.PageNumber, pagingParameters.PageSize);
+            return Task.FromResult(result);
         }
+        #endregion
 
-        public void SaveChanges()
+        #region SearchPosts
+        public Task<PageList<ListPosts>> SearchPosts(string keyWordSearch, PagingParameters pagingParameters)
         {
-            throw new NotImplementedException();
+            var posts = from p in _context.Post
+                        join t in _context.Topic on p.TopicId equals t.Id
+                        where p.PostTitle.ToLower().Contains(keyWordSearch.ToLower())
+                        select new ListPosts
+                        {
+                            Id = p.Id,
+                            PostTitle = p.PostTitle,
+                            TopicId = p.TopicId,
+                            Image = p.Image,
+                            Status = p.Status,
+                            TopicName = t.TopicName
+                        };
+            var posts2 = posts.ToList();
+            var result = PageList<ListPosts>.GetPageList(posts2, pagingParameters.PageNumber, pagingParameters.PageSize);
+            return Task.FromResult(result);
         }
+        #endregion
     }
 }

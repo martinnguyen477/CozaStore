@@ -7,7 +7,10 @@ namespace CozaStore.Services.PostServices
     using System;
     using System.Collections.Generic;
     using System.Text;
+    using System.Threading.Tasks;
     using CozaStore.Model.Model;
+    using CozaStore.Model.PageResult;
+    using CozaStore.Model.ResponseModel;
 
     public interface IPostServices
     {
@@ -17,14 +20,16 @@ namespace CozaStore.Services.PostServices
 
         void Delete(int id);
 
-        List<PostModel> GetAll();
+        ListPosts GetById(int idPost);
 
-        List<PostModel> GetAllPaging(string keyword, int page, int pageSize);
+        Task<List<ListPosts>> GetPostsAll();
 
-        List<PostModel> GetByAlias(string alias);
+        Task<PageList<ListPosts>> GetPostsPaging(PagingParameters pagingParameters);
 
-        PostModel GetById(int id);
+        Task<PageList<ListPosts>> GetsPostsByTopic(PagingParameters pagingParameters, int topicId);
 
-        void SaveChanges();
+        Task<PageList<ListPosts>> GetLatestPosts(PagingParameters pagingParameters);
+
+        Task<PageList<ListPosts>> SearchPosts(string keyWordSearch, PagingParameters pagingParameters);
     }
 }

@@ -1,13 +1,13 @@
-﻿using AutoMapper;
-using CozaStore.Model.EntitiesModel;
-using CozaStore.Model.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿// <copyright file="CategoryMapper.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace CozaStore.API.ProjectMapper
 {
+    using AutoMapper;
+    using CozaStore.Model.EntitiesModel;
+    using CozaStore.Model.Model;
+
     public class CategoryMapper : Profile
     {
         public CategoryMapper()

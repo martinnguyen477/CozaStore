@@ -9,6 +9,8 @@ namespace CozaStore
     using System.Linq;
     using System.Threading.Tasks;
     using CozaStore.Data.EntityContext;
+    using CozaStore.WebApp;
+    using CozaStore.WebApp.Services;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,6 +36,8 @@ namespace CozaStore
             {
                 option.UseSqlServer(Configuration.GetConnectionString("CozaStore"));
             });
+            services.AddHttpClient();
+            services.AddTransient<IProductServiceApiClient, ProductServiceApiClient>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

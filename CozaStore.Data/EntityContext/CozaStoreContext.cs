@@ -4,8 +4,16 @@
 
 namespace CozaStore.Data.EntityContext
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.Linq;
+    using System.Threading;
+    using System.Threading.Tasks;
     using CozaStore.Data.SeedDataDefault;
+    using CozaStore.Model.BaseModel;
     using CozaStore.Model.EntitiesModel;
+    using CozaStore.Model.Enum;
     using Microsoft.EntityFrameworkCore;
 
     /// <summary>
@@ -45,12 +53,17 @@ namespace CozaStore.Data.EntityContext
 
         public DbSet<SupplierEntities> Supplier { get; set; }
 
+        public DbSet<TagEntities> Tags { get; set; }
+
+        public DbSet<ContactEntities> Contact { get; set; }
+
         #endregion
 
         /// <summary>
         /// OnModelCeating.
         /// </summary>
         /// <param name="modelbuilder">modelBuilder.</param>
+        #region OnModelCreating
         protected override void OnModelCreating(ModelBuilder modelbuilder)
         {
             modelbuilder.Entity<ProductEntities>().ToTable("Product").HasKey(p => p.Id);
@@ -63,8 +76,58 @@ namespace CozaStore.Data.EntityContext
             modelbuilder.Entity<SlideEntities>().ToTable("Slide").HasKey(s => s.Id);
             modelbuilder.Entity<TopicEntities>().ToTable("Topic").HasKey(t => t.Id);
             modelbuilder.Entity<SupplierEntities>().ToTable("Supplier").HasKey(s => s.Id);
+            modelbuilder.Entity<TagEntities>().ToTable("Tag").HasKey(s => s.Id);
+            modelbuilder.Entity<ContactEntities>().ToTable("Contact").HasKey(s => s.Id);
             modelbuilder.Entity<RoleEntities>().ToTable("Role").HasKey(r => r.Id);
             modelbuilder.SeedDataDefault();
         }
+        #endregion
+
+        //#region Override Entity
+
+        ///// <summary>
+        ///// Ghi đè hàm save change để lấy ngày createdate hoặc update.
+        ///// </summary>
+        ///// <returns>datetime.</returns>
+        //public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
+        //{
+        //    var dateNow = DateTime.Now;
+        //    var errorList = new List<ValidationResult>();
+
+        //    var entries = ChangeTracker.Entries()
+        // .Where(p => p.State == EntityState.Added ||
+        //     p.State == EntityState.Modified).ToList();
+
+        //    foreach (var entry in entries)
+        //    {
+        //        var entity = entry.Entity;
+        //        if (entry.State == EntityState.Added)
+        //        {
+        //            if (entity is BaseTable itemBase)
+        //            {
+        //                itemBase.CreateDate = itemBase.UpdateDate = dateNow;
+        //                itemBase.Status = (int)EStatus.Active;
+        //            }
+        //        }
+        //        else if (entry.State == EntityState.Modified)
+        //        {
+        //            if (entity is BaseTable itemBase)
+        //            {
+        //                itemBase.UpdateDate = dateNow;
+        //            }
+        //        }
+
+        //        Validator.TryValidateObject(entity, new ValidationContext(entity), errorList);
+        //    }
+
+        //    if (errorList.Any())
+        //    {
+        //        throw new Exception(string.Join(", ", errorList.Select(p => p.ErrorMessage)).Trim());
+        //    }
+
+        //    return base.SaveChangesAsync();
+        // }
+
+        // #endregion Override Entity
     }
 }

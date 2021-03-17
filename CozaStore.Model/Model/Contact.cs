@@ -13,10 +13,7 @@ namespace CozaStore.Model.Model
     /// </summary>
     public class ContactModel : BaseTableWithId
     {
-        /// <summary>
-        /// Gets or sets contactTitle.
-        /// </summary>
-        public string ContactTitle { get; set; }
+        public string FullName { get; set; }
 
         /// <summary>
         /// Gets or sets email.
@@ -24,8 +21,18 @@ namespace CozaStore.Model.Model
         public string Email { get; set; }
 
         /// <summary>
+        /// Gets or sets email.
+        /// </summary>
+        public string PhoneNumber { get; set; }
+
+        /// <summary>
+        /// Gets or sets contactTitle.
+        /// </summary>
+        public string ContactTitle { get; set; }
+
+        /// <summary>
         /// Gets or sets description.
         /// </summary>
-        public string Description { get; set; }
+        public string Message { get; set; }
     }
 }

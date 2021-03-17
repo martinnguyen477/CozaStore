@@ -29,3 +29,24 @@ dotnet_diagnostic.SA1300.severity = silent
 
 # SA1649: File name should match first type name
 dotnet_diagnostic.SA1649.severity = silent
+
+# SA1633: File should have header
+dotnet_diagnostic.SA1633.severity = silent
+
+# SA1200: Using directives should be placed correctly
+dotnet_diagnostic.SA1200.severity = silent
+
+# SA1202: Elements should be ordered by access
+dotnet_diagnostic.SA1202.severity = silent
+
+# SA1303: Const field names should begin with upper-case letter
+dotnet_diagnostic.SA1303.severity = silent
+
+# SA1127: Generic type constraints should be on their own line
+dotnet_diagnostic.SA1127.severity = silent
+
+# SA1005: Single line comments should begin with single space
+dotnet_diagnostic.SA1005.severity = silent
+
+# SA1123: Do not place regions within elements
+dotnet_diagnostic.SA1123.severity = silent

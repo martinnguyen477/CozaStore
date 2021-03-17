@@ -5912,11 +5912,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nguyen Quoc Cuong\\Desktop\\CozaStore\\CozaStore.Data\\CozaStore.Data.csproj",
+      "projectUniqueName": "C:\\Users\\Nguyen Quoc Cuong\\source\\repos\\CozaStore\\CozaStore.Data\\CozaStore.Data.csproj",
       "projectName": "CozaStore.Data",
-      "projectPath": "C:\\Users\\Nguyen Quoc Cuong\\Desktop\\CozaStore\\CozaStore.Data\\CozaStore.Data.csproj",
+      "projectPath": "C:\\Users\\Nguyen Quoc Cuong\\source\\repos\\CozaStore\\CozaStore.Data\\CozaStore.Data.csproj",
       "packagesPath": "C:\\Users\\Nguyen Quoc Cuong\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nguyen Quoc Cuong\\Desktop\\CozaStore\\CozaStore.Data\\obj\\",
+      "outputPath": "C:\\Users\\Nguyen Quoc Cuong\\source\\repos\\CozaStore\\CozaStore.Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Nguyen Quoc Cuong\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5933,8 +5933,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Nguyen Quoc Cuong\\Desktop\\CozaStore\\CozaStore.Model\\CozaStore.Model.csproj": {
-              "projectPath": "C:\\Users\\Nguyen Quoc Cuong\\Desktop\\CozaStore\\CozaStore.Model\\CozaStore.Model.csproj"
+            "C:\\Users\\Nguyen Quoc Cuong\\source\\repos\\CozaStore\\CozaStore.Model\\CozaStore.Model.csproj": {
+              "projectPath": "C:\\Users\\Nguyen Quoc Cuong\\source\\repos\\CozaStore\\CozaStore.Model\\CozaStore.Model.csproj"
             }
           }
         }

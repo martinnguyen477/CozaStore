@@ -11,7 +11,16 @@ namespace CozaStore.Model.Enum
     /// <summary>
     /// Status.
     /// </summary>
-    public class EStatus
+    public enum EStatus
     {
+        /// <summary>
+        /// Hoạt động.
+        /// </summary>
+        Active,
+
+        /// <summary>
+        /// Không hoạt động.
+        /// </summary>
+        InActive
     }
 }

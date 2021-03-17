@@ -38,7 +38,7 @@ namespace CozaStore.Model.EntitiesModel
         /// Gets or sets descriptiop.
         /// </summary>
         [Required]
-        [Column("Detail")]
-        public string Detail { get; set; }
+        [Column(" Description")]
+        public string Description { get; set; }
     }
 }
