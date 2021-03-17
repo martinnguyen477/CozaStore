@@ -22,7 +22,7 @@ namespace CozaStore.Services.PostServices
 
         ListPosts GetById(int idPost);
 
-        Task<List<ListPosts>> GetPosts();
+        Task<List<ListPosts>> GetPostsAll();
 
         Task<PageList<ListPosts>> GetPostsPaging(PagingParameters pagingParameters);
 

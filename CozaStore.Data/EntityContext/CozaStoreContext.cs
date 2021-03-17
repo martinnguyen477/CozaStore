@@ -55,12 +55,15 @@ namespace CozaStore.Data.EntityContext
 
         public DbSet<TagEntities> Tags { get; set; }
 
+        public DbSet<ContactEntities> Contact { get; set; }
+
         #endregion
 
         /// <summary>
         /// OnModelCeating.
         /// </summary>
         /// <param name="modelbuilder">modelBuilder.</param>
+        #region OnModelCreating
         protected override void OnModelCreating(ModelBuilder modelbuilder)
         {
             modelbuilder.Entity<ProductEntities>().ToTable("Product").HasKey(p => p.Id);
@@ -74,9 +77,11 @@ namespace CozaStore.Data.EntityContext
             modelbuilder.Entity<TopicEntities>().ToTable("Topic").HasKey(t => t.Id);
             modelbuilder.Entity<SupplierEntities>().ToTable("Supplier").HasKey(s => s.Id);
             modelbuilder.Entity<TagEntities>().ToTable("Tag").HasKey(s => s.Id);
+            modelbuilder.Entity<ContactEntities>().ToTable("Contact").HasKey(s => s.Id);
             modelbuilder.Entity<RoleEntities>().ToTable("Role").HasKey(r => r.Id);
             modelbuilder.SeedDataDefault();
         }
+        #endregion
 
         //#region Override Entity
 

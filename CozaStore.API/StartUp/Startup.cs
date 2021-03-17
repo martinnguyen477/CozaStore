@@ -1,17 +1,21 @@
-using AutoMapper;
-using CozaStore.Data.EntityContext;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using System;
-using Microsoft.OpenApi.Models;
-using CozaStore.API.StartUp;
+// <copyright file="Startup.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace CozaStore.API
 {
+    using System;
+    using AutoMapper;
+    using CozaStore.API.StartUp;
+    using CozaStore.Data.EntityContext;
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Hosting;
+    using Microsoft.OpenApi.Models;
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -36,6 +40,7 @@ namespace CozaStore.API
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddApplicationServicesExtensions();
             #endregion
+
             #region Swagger
             services.AddSwaggerGen(c =>
             {
@@ -65,9 +70,11 @@ namespace CozaStore.API
             else
             {
                 app.UseExceptionHandler("/Home/Error");
+
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 

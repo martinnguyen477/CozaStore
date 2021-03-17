@@ -29,7 +29,7 @@ namespace CozaStore.API.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            return Ok(await _postServices.GetPosts());
+            return Ok(await _postServices.GetPostsAll());
         }
         #endregion
 
@@ -60,6 +60,14 @@ namespace CozaStore.API.Controllers
         }
         #endregion
 
+        #region PostById
+        [HttpGet("{idPost:int}")]
+        public ListPosts PostById(int idPost)
+        {
+            return _postServices.GetById(idPost);
+        }
+        #endregion
+
         #region GetPostsPaging
         [HttpGet("GetPostsPaging")]
         public async Task<ActionResult<IEnumerable<ListPosts>>> GetPostsPaging([FromQuery] PagingParameters pagingParameters)
@@ -73,14 +81,6 @@ namespace CozaStore.API.Controllers
         public async Task<ActionResult<IEnumerable<ListPosts>>> GetPostsByTopic([FromQuery] PagingParameters pagingParameters, int topicId)
         {
             return await _postServices.GetsPostsByTopic(pagingParameters, topicId);
-        }
-        #endregion
-
-        #region PostById
-        [HttpGet("id")]
-        public ListPosts PostById(int idPost)
-        {
-            return _postServices.GetById(idPost);
         }
         #endregion
 

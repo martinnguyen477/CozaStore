@@ -1,19 +1,19 @@
-﻿using System;
-using CozaStore.Model.EntitiesModel;
-using CozaStore.Model.Model;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿// <copyright file="ContactMapper.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace CozaStore.API.ProjectMapper
 {
+    using AutoMapper;
+    using CozaStore.Model.EntitiesModel;
+    using CozaStore.Model.Model;
+
     public class ContactMapper : Profile
     {
         public ContactMapper()
         {
-            CreateMap<CategoryEntities, CategoryModel>();
-            CreateMap<CategoryModel, CategoryEntities>();
+            CreateMap<ContactEntities, ContactModel>();
+            CreateMap<ContactModel, ContactEntities>();
         }
     }
 }
